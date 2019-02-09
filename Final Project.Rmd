@@ -1,0 +1,33 @@
+---
+title: "ESM 224 Final Project"
+author: "Sara Orofino"
+date: "2/8/2019"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+library(tidyverse)
+```
+
+Testing out spatial analysis for the map for Shiny Output 1
+```{r sf, echo=FALSE, warning=FALSE}
+
+# load packages
+
+library(sf)
+
+# read in data
+
+ca_counties <- st_read(dsn = "CA_Counties", layer = "CA_Counties_TIGER2016")
+
+# Create a basemap of CA counties for output 1 
+
+ca_basemap <- ca_counties %>% 
+  select(COUNTYFP)
+
+plot(ca_basemap)
+
+```
+
