@@ -1,0 +1,51 @@
+---
+title: "Rent"
+author: "Barbara Rose Hoover"
+date: "2/9/2019"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+library(stringr)
+library(tidyverse)
+```
+
+```{r}
+rent<-read_csv("rent.csv")
+fips<-read_csv("county_fips.csv")
+```
+
+```{r}
+rent_county<- rent %>% 
+  filter(str_detect(`COUNTY/METRO`, 'County')) %>% #remove unnecessary rows of information to only include the county
+  filter(!str_detect(`COUNTY/METRO`, 'HMFA')) %>% #remove unnecessary rows of information 
+  lapply(gsub, pattern=',', replacement='') %>% #delete comma from rent amount
+  lapply(gsub, pattern='\\$', replacement='') %>% #delete $ from rent amount 
+  lapply(gsub, pattern='County', replacement='') %>% #clean the names to match other data frames used in shiny
+  as_data_frame %>% #to be able to use the select function 
+  rename(county = `COUNTY/METRO`) %>% 
+  select(county, studio, one_bed, two_bed, three_bed, four_bed)
+  
+#change data type to numeric from character
+ rent_county$studio<-as.numeric(rent_county$studio)
+ rent_county$one_bed<-as.numeric(rent_county$one_bed)
+ rent_county$two_bed<-as.numeric(rent_county$two_bed)
+ rent_county$three_bed<-as.numeric(rent_county$three_bed)
+ rent_county$four_bed<-as.numeric(rent_county$four_bed)
+
+#adding fips code to make data uniform. I double checked to make sure the correct ones were matching up 
+rent_county$FIPS<-fips$FIPS
+#reorder columns to make it pretty
+rent_county<- rent_county[,c(1,7,2,3,4,5,6)]
+
+View(rent_county)
+```
+
+```{r}
+write.csv(rent_county, file = "rent_county.csv")
+```
+
