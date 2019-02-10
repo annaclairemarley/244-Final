@@ -1,0 +1,43 @@
+---
+title: "Entertainment Metadata"
+output: html_notebook
+---
+
+source: https://www.census.gov/data/datasets/2016/econ/cbp/2016-cbp.html
+        County Businee Patterns 2016
+
+Classification Used: NAICS Code 711///
+
+NAICS Code Key: 
+
+  *711///*Performing Arts, Spectator Sports, and Related IndustriesT
+  
+      7111//	Performing Arts CompaniesT
+        71111/	Theater Companies and Dinner TheatersT
+          711110	Theater Companies and Dinner Theaters
+        71112/	Dance CompaniesT
+          711120	Dance Companies
+        71113/	Musical Groups and ArtistsT
+          711130	Musical Groups and Artists
+        71119/	Other Performing Arts CompaniesT
+          711190	Other Performing Arts Companies
+  
+      7112//	Spectator SportsT
+       71121/	Spectator SportsT
+          711211  Sports Teams and Clubs
+          711212  Racetracks
+          711219  Other Spectator Sports
+      
+      7113//	Promoters of Performing Arts, Sports, and Similar EventsT
+        71131/	Promoters of Performing Arts, Sports, and Similar Events with FacilitiesT
+          711310 Promoters of Performing Arts, Sports, and Similar Events with Facilities
+        71132/	Promoters of Performing Arts, Sports, and Similar Events without FacilitiesT
+         711320 Promoters of Performing Arts, Sports, and Similar Events without Facilities
+      
+      7114//	Agents and Managers for Artists, Athletes, Entertainers, and Other Public FiguresT
+        71141/	Agents and Managers for Artists, Athletes, Entertainers, and Other Public FiguresT
+          711410 Agents and Managers for Artists, Athletes, Entertainers, and Other Public Figures
+      
+      7115//	Independent Artists, Writers, and PerformersT
+        71151/	Independent Artists, Writers, and PerformersT
+         711510 Independent Artists, Writers, and Performers

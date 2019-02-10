@@ -1,0 +1,59 @@
+county_name,FIPS,713,712,Total
+Alameda,1,568,22,590
+Alpine,3,4,0,4
+Amador,5,16,1,17
+Butte,7,94,3,97
+Calaveras,9,26,3,29
+Colusa,11,14,1,15
+Contra Costa,13,524,10,534
+Del Norte,15,4,1,5
+El Dorado,17,129,2,131
+Fresno,19,246,9,255
+Glenn,21,10,0,10
+Humboldt,23,68,10,78
+Imperial,25,40,2,42
+Inyo,27,23,3,26
+Kern,29,198,9,207
+Kings,31,22,1,23
+Lake,33,24,0,24
+Lassen,35,4,1,5
+Los Angeles,37,3188,126,3314
+Madera,39,36,6,42
+Marin,41,241,12,253
+Mariposa,43,8,1,9
+Mendocino,45,49,6,55
+Merced,47,62,4,66
+Modoc,49,1,0,1
+Mono,51,14,3,17
+Monterey,53,132,21,153
+Napa,55,86,7,93
+Nevada,57,111,3,114
+Orange,59,1393,35,1428
+Placer,61,224,4,228
+Plumas,63,26,4,30
+Riverside,65,729,29,758
+Sacramento,67,502,16,518
+San Benito,69,26,1,27
+San Bernardino,71,509,10,519
+San Diego,73,1462,61,1523
+San Francisco,75,450,54,504
+San Joaquin,77,214,7,221
+San Luis Obispo,79,166,14,180
+San Mateo,81,373,13,386
+Santa Barbara,83,206,31,237
+Santa Clara,85,793,25,818
+Santa Cruz,87,123,9,132
+Shasta,89,86,4,90
+Sierra,91,0,0,0
+Siskiyou,93,30,1,31
+Solano,95,170,3,173
+Sonoma,97,264,6,270
+Stanislaus,99,153,24,177
+Sutter,101,50,2,52
+Tehama,103,17,2,19
+Trinity,105,10,1,11
+Tulare,107,67,8,75
+Tuolumne,109,54,2,56
+Ventura,111,343,18,361
+Yolo,113,80,7,87
+Yuba,115,22,1,23

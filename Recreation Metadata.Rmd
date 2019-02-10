@@ -1,0 +1,52 @@
+---
+title: "Recreation"
+output: html_notebook
+---
+
+
+source: https://www.census.gov/data/datasets/2016/econ/cbp/2016-cbp.html
+        County Businee Patterns 2016
+
+Classification Used: NAICS Code 712///, 7131//, 7139// 
+
+NAICS Code Key: 
+
+  *712///*	Museums, Historical Sites, and Similar Institutions
+          7121//	Museums, Historical Sites, and Similar Institutions
+            71211/	Museums
+              712110	Museums
+            71212/	Historical Sites
+              712120	Historical Sites
+            71213/	Zoos and Botanical Gardens
+              712130	Zoos and Botanical Gardens
+            71219/	Nature Parks and Other Similar Institutions
+              712190	Nature Parks and Other Similar Institutions
+
+  713///	Amusement, Gambling, and Recreation Industries
+          *7131//*	Amusement Parks and Arcades
+            71311/	Amusement and Theme Parks
+              713110  Amusement and Theme Parks
+            71312/	Amusement ArcadesT
+              713120  Amusement Arcades
+          *7139//*	Other Amusement and Recreation IndustriesT
+            71391/	Golf Courses and Country ClubsT
+              713910	Golf Courses and Country Clubs
+            71392/	Skiing FacilitiesT
+              713920	Skiing Facilities
+            71393/	MarinasT
+              713930	Marinas
+            71394/	Fitness and Recreational Sports CentersT
+              713940	Fitness and Recreational Sports Centers
+            71395/	Bowling CentersT
+             713950	Bowling Centers
+            71399/	All Other Amusement and Recreation IndustriesT
+              713990	All Other Amusement and Recreation Industries
+
+
+Special Note *Excluded 7132// "Gambling"
+
+          7132//	Gambling IndustriesT
+            71321/	Casinos (except Casino Hotels)T
+              713210  Casinos (except Casino Hotels)
+            71329/	Other Gambling IndustriesT
+              713290  Other Gambling Industries
