@@ -11,6 +11,25 @@ knitr::opts_chunk$set(echo = TRUE)
 library(tidyverse)
 ```
 
+County names vector for easier future use:
+```{r}
+# Create a vector of names for  counties  
+
+county_names <- c("Alameda", "Alpine", "Amador", "Butte", "Calaveras", "Colusa",
+                                     "Contra Costa", "Del Norte","El Dorado", "Fresno", "Glenn",
+                                     "Humbolt", "Imperial", "Inyo", "Kern",  "Kings", "Lake", 
+                                     "Lassen", "Los Angeles", "Madera", "Marin", "Mariposa", 
+                                     "Mendocino", "Merced", "Modoc", "Mono", "Monterey", "Napa",
+                                     "Nevada", "Orange", "Placer", "Plumas", "Riverside", "Sacramento",
+                                     "San Benito", "San Bernadino", "San Diego", "San Francisco", 
+                                     "San Joaquin", "San Louis Obispo", "San Mateo", "Santa Barbara",
+                                     "Santa Clara", "Santa Cruz", "Shasta",  "Sierra", "Siskiyou", 
+                                     "Solano", "Sonoma", "Stanislaus", "Sutter", "Tehama",
+                                     "Trinity", "Tulare", "Ventura", "Yolo", "Yuba")
+```
+
+
+
 Testing out spatial analysis for the map for Shiny Output 1
 ```{r sf, echo=FALSE, warning=FALSE}
 
