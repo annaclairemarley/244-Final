@@ -58,26 +58,26 @@ night_percap <- merge(night_life, pop_2019, by = c("county")) %>%
   mutate(nightpc = drinking_establish/pop_19)
   
   
-  
 ## histograms
 rice <- 2*((NROW(night_life$drinking_establish))^(1/3))
 
-night_hist <- night_life %>% 
-  ggplot(aes(x = drinking_establish)) +
+night_hist <- night_percap %>% 
+  ggplot(aes(x = nightpc)) +
   geom_histogram() +
    scale_x_continuous(expand = c(0,0)) +
   scale_y_continuous(expand = c(0,0)) +
   theme_minimal()
 night_hist
 
-median(night_life$drinking_establish) #16
-mean(night_life$drinking_establish) # 56
+median(night_percap$nightpc) #  8.08157e-05
+mean(night_percap$nightpc) # 0.0001124961
 
-# health
-health <- read_csv()
+# top 5 greatest values for number of drinking establishments per capita
+night_pc_5 <- night_percap %>%  
+  arrange(-nightpc) %>% 
+  head(5)
 
 ```
-
 
 
 Testing out spatial analysis for the map for Shiny Output 1
@@ -94,9 +94,38 @@ ca_counties <- st_read(dsn = "CA_Counties", layer = "CA_Counties_TIGER2016")
 # Create a basemap of CA counties for output 1 
 
 ca_basemap <- ca_counties %>% 
-  select(COUNTYFP)
+  dplyr::select(NAME, COUNTYFP)
 
 plot(ca_basemap)
 
+# make basemap grey with black outlines of counties
+
+county_outline <- ca_basemap %>% 
+  ggplot() +
+  geom_sf(fill = "NA",
+          color = "gray30",
+          show.legend = FALSE) +
+  theme_minimal() +
+  coord_sf(datum = NA) 
+
+county_outline
+
+```
+
+Try to figure out inputs to make different counties appear
+
+```{r}
+# first try nightlife
+
+nightlife_counties <- ca_basemap %>% 
+  dplyr::filter(NAME == "Trinity" | NAME == "Plumas" | NAME == "San Francisco" | NAME == "Sierra" | NAME == "Mendocino")
+
+nl_county_map <- county_outline +
+  geom_sf(data = nightlife_counties,
+    aes(fill = NAME)) +
+  theme_minimal() +
+  coord_sf(datum = NA)
+
+nl_county_map
 ```
 
