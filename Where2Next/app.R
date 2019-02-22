@@ -46,7 +46,11 @@ ui <- navbarPage(
                                 choices = list("Sports Teams", "Nightlife", "Entertainment", 
                                                "Restaurants", "Parks and Outdoor Recreation", "Traffic",
                                                "Environmental Health")),
-             plotOutput("ca_map"))),
+             mainPanel(
+               plotOutput("ca_map")
+             )
+             ),
+  
   
   # Tab 3 - Graph and map comparing selected counties
   tabPanel("County Comparisions",
@@ -58,7 +62,7 @@ ui <- navbarPage(
                        choices = county_names,
                        selected = 1)),
            plotOutput("comparison_graph"))
-)
+)),
 
 # Define server logic required to draw a histogram
 server <- function(input, output) {
@@ -73,7 +77,7 @@ server <- function(input, output) {
   })
   
   output$ca_map <- renderPlot({
-    
+    plot(county_outline)
   })
   
 }
