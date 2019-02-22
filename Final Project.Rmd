@@ -49,6 +49,7 @@ pop_2019 <- read_csv("ca_county_2019_pop.csv") %>%
 
 Analyzing the different datasets to determine the best threshold values to choose
 
+Nightlife:
 ```{r}
 ### nightlife exploration
 night_life <- read_csv("night_life.csv")
@@ -56,7 +57,6 @@ night_life <- read_csv("night_life.csv")
 # number of drinking establishments per capita
 night_percap <- merge(night_life, pop_2019, by = c("county")) %>% 
   mutate(nightpc = drinking_establish/pop_19)
-  
   
 ## histograms
 rice <- 2*((NROW(night_life$drinking_establish))^(1/3))
@@ -76,6 +76,14 @@ mean(night_percap$nightpc) # 0.0001124961
 night_pc_5 <- night_percap %>%  
   arrange(-nightpc) %>% 
   head(5)
+
+```
+
+Health:
+
+```{r}
+
+
 
 ```
 
@@ -120,6 +128,7 @@ Try to figure out inputs to make different counties appear
 nightlife_counties <- ca_basemap %>% 
   dplyr::filter(NAME == "Trinity" | NAME == "Plumas" | NAME == "San Francisco" | NAME == "Sierra" | NAME == "Mendocino")
 
+# need to make this so that we just add whatever the input is from the app to the county outline so data = should be the input but then otherwise can keep this map
 nl_county_map <- county_outline +
   geom_sf(data = nightlife_counties,
     aes(fill = NAME)) +
