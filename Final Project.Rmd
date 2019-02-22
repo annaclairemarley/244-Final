@@ -9,6 +9,7 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 
 library(tidyverse)
+library(janitor)
 ```
 
 County names vector for easier future use:
@@ -25,7 +26,56 @@ county_names <- c("Alameda", "Alpine", "Amador", "Butte", "Calaveras", "Colusa",
                                      "San Joaquin", "San Louis Obispo", "San Mateo", "Santa Barbara",
                                      "Santa Clara", "Santa Cruz", "Shasta",  "Sierra", "Siskiyou", 
                                      "Solano", "Sonoma", "Stanislaus", "Sutter", "Tehama",
-                                     "Trinity", "Tulare", "Ventura", "Yolo", "Yuba")
+                                     "Trinity", "Tulare", "Tuolumne", "Ventura", "Yolo", "Yuba")
+
+county_names_df <- as.data.frame(county_names)
+```
+
+California county population for the year 2018
+
+```{r}
+
+pop_2019 <- read_csv("ca_county_2019_pop.csv") %>% 
+  clean_names() %>% 
+  rename(county = name) %>% 
+  rename(pop_19 = x2019_population) %>% 
+  arrange(county) %>% 
+  add_column(county_names) %>% 
+  select(county_names, pop_19) %>% 
+  rename(county = county_names) 
+
+```
+
+
+Analyzing the different datasets to determine the best threshold values to choose
+
+```{r}
+### nightlife exploration
+night_life <- read_csv("night_life.csv")
+
+# number of drinking establishments per capita
+night_percap <- merge(night_life, pop_2019, by = c("county")) %>% 
+  mutate(nightpc = drinking_establish/pop_19)
+  
+  
+  
+## histograms
+rice <- 2*((NROW(night_life$drinking_establish))^(1/3))
+
+night_hist <- night_life %>% 
+  ggplot(aes(x = drinking_establish)) +
+  geom_histogram() +
+   scale_x_continuous(expand = c(0,0)) +
+  scale_y_continuous(expand = c(0,0)) +
+  theme_minimal()
+night_hist
+
+median(night_life$drinking_establish) #16
+mean(night_life$drinking_establish) # 56
+
+# health
+health <- read_csv()
+
 ```
 
 
