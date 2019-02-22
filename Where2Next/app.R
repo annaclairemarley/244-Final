@@ -45,11 +45,15 @@ ui <- navbarPage(
              checkboxGroupInput("attributes", "What's Important to You in a New City?",
                                 choices = list("Sports Teams", "Nightlife", "Entertainment", 
                                                "Restaurants", "Parks and Outdoor Recreation", "Traffic",
-                                               "Environmental Health")),
-             mainPanel(
-               plotOutput("ca_map")
-             )
+                                               "Environmental Health"))
+            
              ),
+           
+           mainPanel(
+             plotOutput("ca_map")
+           )
+           
+           ),
   
   
   # Tab 3 - Graph and map comparing selected counties
@@ -62,7 +66,7 @@ ui <- navbarPage(
                        choices = county_names,
                        selected = 1)),
            plotOutput("comparison_graph"))
-)),
+)
 
 # Define server logic required to draw a histogram
 server <- function(input, output) {
@@ -77,7 +81,7 @@ server <- function(input, output) {
   })
   
   output$ca_map <- renderPlot({
-    plot(county_outline)
+    county_outline
   })
   
 }
