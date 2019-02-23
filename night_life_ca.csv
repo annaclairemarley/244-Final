@@ -13,7 +13,7 @@
 "Humboldt",23,32,21,0
 "Imperial",25,11,34,0
 "Inyo",27,2,51,0
-"Kern",29,53,14,0
+"Kern",29,53,14,1
 "Kings",31,7,40,0
 "Lake",33,10,35,0
 "Lassen",35,6,42,0
@@ -37,7 +37,7 @@
 "San Bernardino",71,100,8,1
 "San Diego",73,327,3,1
 "San Francisco",75,394,2,1
-"San Joaquin",77,53,15,0
+"San Joaquin",77,53,15,1
 "San Luis Obispo",79,34,19,0
 "San Mateo",81,55,12,1
 "Santa Barbara",83,55,13,1
@@ -47,13 +47,13 @@
 "Sierra",91,1,56,0
 "Siskiyou",93,9,37,0
 "Solano",95,36,18,0
-"Sonoma",97,51,17,0
+"Sonoma",97,51,17,1
 "Stanislaus",99,31,22,0
 "Sutter",101,3,50,0
 "Tehama",103,6,43,0
 "Trinity",105,7,41,0
 "Tulare",107,9,38,0
 "Tuolumne",109,6,44,0
-"Ventura",111,53,16,0
+"Ventura",111,53,16,1
 "Yolo",113,17,28,0
 "Yuba",115,5,45,0
