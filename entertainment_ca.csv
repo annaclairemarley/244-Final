@@ -1,59 +1,59 @@
 "county","fips","est","rank","score"
-"Alameda",1,224,6,0
-"Alpine",3,1,49,1
-"Amador",5,4,39,1
-"Butte",7,15,27,1
-"Calaveras",9,0,56,1
-"Colusa",11,0,57,1
-"Contra Costa",13,106,12,0
-"Del Norte",15,0,58,1
-"El Dorado",17,20,23,1
-"Fresno",19,39,18,1
-"Glenn",21,2,43,1
-"Humboldt",23,9,32,1
-"Imperial",25,1,50,1
-"Inyo",27,5,37,1
-"Kern",29,30,21,1
-"Kings",31,2,44,1
-"Lake",33,1,51,1
-"Lassen",35,2,45,1
-"Los Angeles",37,13577,1,0
-"Madera",39,9,33,1
-"Marin",41,132,9,0
-"Mariposa",43,2,46,1
-"Mendocino",45,14,29,1
-"Merced",47,4,40,1
-"Modoc",49,1,52,1
-"Mono",51,2,47,1
-"Monterey",53,47,17,1
-"Napa",55,16,25,1
-"Nevada",57,16,26,1
-"Orange",59,510,2,0
-"Placer",61,31,20,1
-"Plumas",63,1,53,1
-"Riverside",65,174,7,0
-"Sacramento",67,98,13,0
-"San Benito",69,5,38,1
-"San Bernardino",71,109,11,0
-"San Diego",73,469,3,0
-"San Francisco",75,315,4,0
-"San Joaquin",77,18,24,1
-"San Luis Obispo",79,36,19,1
-"San Mateo",81,92,14,0
-"Santa Barbara",83,125,10,0
-"Santa Clara",85,149,8,0
-"Santa Cruz",87,49,16,1
-"Shasta",89,10,31,1
-"Sierra",91,1,54,1
-"Siskiyou",93,4,41,1
-"Solano",95,22,22,1
-"Sonoma",97,88,15,1
-"Stanislaus",99,15,28,1
-"Sutter",101,1,55,1
-"Tehama",103,4,42,1
-"Trinity",105,2,48,1
-"Tulare",107,9,34,1
-"Tuolumne",109,7,35,1
-"Ventura",111,258,5,0
-"Yolo",113,13,30,1
-"Yuba",115,6,36,1
+"Alameda",1,245,6,1
+"Alpine",3,1,49,0
+"Amador",5,5,39,0
+"Butte",7,18,27,0
+"Calaveras",9,0,56,0
+"Colusa",11,1,57,0
+"Contra Costa",13,121,12,1
+"Del Norte",15,1,58,0
+"El Dorado",17,23,23,0
+"Fresno",19,45,18,0
+"Glenn",21,2,43,0
+"Humboldt",23,14,32,0
+"Imperial",25,4,50,0
+"Inyo",27,6,37,0
+"Kern",29,36,21,0
+"Kings",31,5,44,0
+"Lake",33,2,51,0
+"Lassen",35,4,45,0
+"Los Angeles",37,13717,1,1
+"Madera",39,10,33,0
+"Marin",41,142,9,1
+"Mariposa",43,2,46,0
+"Mendocino",45,16,29,0
+"Merced",47,7,40,0
+"Modoc",49,1,52,0
+"Mono",51,3,47,0
+"Monterey",53,54,17,0
+"Napa",55,18,25,0
+"Nevada",57,20,26,0
+"Orange",59,548,2,1
+"Placer",61,37,20,0
+"Plumas",63,1,53,0
+"Riverside",65,200,7,1
+"Sacramento",67,112,13,1
+"San Benito",69,6,38,0
+"San Bernardino",71,127,11,1
+"San Diego",73,510,3,1
+"San Francisco",75,337,4,1
+"San Joaquin",77,23,24,0
+"San Luis Obispo",79,42,19,0
+"San Mateo",81,98,14,1
+"Santa Barbara",83,138,10,1
+"Santa Clara",85,171,8,1
+"Santa Cruz",87,52,16,0
+"Shasta",89,14,31,0
+"Sierra",91,1,54,0
+"Siskiyou",93,5,41,0
+"Solano",95,25,22,0
+"Sonoma",97,99,15,1
+"Stanislaus",99,19,28,0
+"Sutter",101,2,55,0
+"Tehama",103,5,42,0
+"Trinity",105,2,48,0
+"Tulare",107,14,34,0
+"Tuolumne",109,9,35,0
+"Ventura",111,272,5,1
+"Yolo",113,16,30,0
+"Yuba",115,6,36,0
