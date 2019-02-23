@@ -1,5 +1,5 @@
 ---
-title: "California Demographics and Geographic Profile"
+title: "Cali"
 author: "Barbara Rose Hoover"
 date: "2/9/2019"
 output: html_document
@@ -54,5 +54,9 @@ names(counties) <- new_names
 coast<-read_csv("coast.csv") #counties with a coastline per wikipedia 
 
 coast<-coast %>% 
-  lapply(gsub, pattern=' County, California', replacement='')
+  lapply(gsub, pattern=' County, California', replacement='') %>%
+  as.data.frame()  
 
+coast$county<-as.character(coast$county) 
+merge(ca_profile, coast, by="county", all=TRUE)
+ca_profile<-[is.na(ca_profile)] <- 0

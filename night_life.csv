@@ -1,59 +1,59 @@
-﻿county,FIPS,drinking_establish
-Alameda,1,167
-Alpine,3,0
-Amador,5,4
-Butte,7,22
-Calaveras,9,4
-Colusa,11,3
-Contra Costa,13,70
-Del Norte,15,1
-El Dorado,17,16
-Fresno,19,64
-Glenn,21,3
-Humboldt,23,32
-Imperial,25,11
-Inyo,27,2
-Kern,29,53
-Kings,31,7
-Lake,33,10
-Lassen,35,6
-Los Angeles,37,746
-Madera,39,8
-Marin,41,28
-Mariposa,43,2
-Mendocino,45,21
-Merced,47,14
-Modoc,49,0
-Mono,51,1
-Monterey,53,25
-Napa,55,12
-Nevada,57,14
-Orange,59,227
-Placer,61,27
-Plumas,63,10
-Riverside,65,89
-Sacramento,67,107
-San Benito,69,2
-San Bernardino,71,100
-San Diego,73,327
-San Francisco,75,394
-San Joaquin,77,53
-San Luis Obispo,79,34
-San Mateo,81,55
-Santa Barbara,83,55
-Santa Clara,85,140
-Santa Cruz,87,34
-Shasta,89,16
-Sierra,91,1
-Siskiyou,93,9
-Solano,95,36
-Sonoma,97,51
-Stanislaus,99,31
-Sutter,101,3
-Tehama,103,6
-Trinity,105,7
-Tulare,107,9
-Tuolumne,109,6
-Ventura,111,53
-Yolo,113,17
-Yuba,115,5
+"county","FIPS","drinking_establish","night.rank"
+"Alameda",1,167,1
+"Alpine",3,0,0
+"Amador",5,4,0
+"Butte",7,22,0
+"Calaveras",9,4,0
+"Colusa",11,3,0
+"Contra Costa",13,70,1
+"Del Norte",15,1,0
+"El Dorado",17,16,0
+"Fresno",19,64,1
+"Glenn",21,3,0
+"Humboldt",23,32,0
+"Imperial",25,11,0
+"Inyo",27,2,0
+"Kern",29,53,0
+"Kings",31,7,0
+"Lake",33,10,0
+"Lassen",35,6,0
+"Los Angeles",37,746,1
+"Madera",39,8,0
+"Marin",41,28,0
+"Mariposa",43,2,0
+"Mendocino",45,21,0
+"Merced",47,14,0
+"Modoc",49,0,0
+"Mono",51,1,0
+"Monterey",53,25,0
+"Napa",55,12,0
+"Nevada",57,14,0
+"Orange",59,227,1
+"Placer",61,27,0
+"Plumas",63,10,0
+"Riverside",65,89,1
+"Sacramento",67,107,1
+"San Benito",69,2,0
+"San Bernardino",71,100,1
+"San Diego",73,327,1
+"San Francisco",75,394,1
+"San Joaquin",77,53,0
+"San Luis Obispo",79,34,0
+"San Mateo",81,55,1
+"Santa Barbara",83,55,1
+"Santa Clara",85,140,1
+"Santa Cruz",87,34,0
+"Shasta",89,16,0
+"Sierra",91,1,0
+"Siskiyou",93,9,0
+"Solano",95,36,0
+"Sonoma",97,51,0
+"Stanislaus",99,31,0
+"Sutter",101,3,0
+"Tehama",103,6,0
+"Trinity",105,7,0
+"Tulare",107,9,0
+"Tuolumne",109,6,0
+"Ventura",111,53,0
+"Yolo",113,17,0
+"Yuba",115,5,0
