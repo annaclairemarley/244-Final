@@ -1,59 +1,59 @@
-﻿county_name,FIPS,711
-Alameda,1,224
-Alpine,3,1
-Amador,5,4
-Butte,7,15
-Calaveras,9,0
-Colusa,11,0
-Contra Costa,13,106
-Del Norte,15,0
-El Dorado,17,20
-Fresno,19,39
-Glenn,21,2
-Humboldt,23,9
-Imperial,25,1
-Inyo,27,5
-Kern,29,30
-Kings,31,2
-Lake,33,1
-Lassen,35,2
-Los Angeles,37,13577
-Madera,39,9
-Marin,41,132
-Mariposa,43,2
-Mendocino,45,14
-Merced,47,4
-Modoc,49,1
-Mono,51,2
-Monterey,53,47
-Napa,55,16
-Nevada,57,16
-Orange,59,510
-Placer,61,31
-Plumas,63,1
-Riverside,65,174
-Sacramento,67,98
-San Benito,69,5
-San Bernardino,71,109
-San Diego,73,469
-San Francisco,75,315
-San Joaquin,77,18
-San Luis Obispo,79,36
-San Mateo,81,92
-Santa Barbara,83,125
-Santa Clara,85,149
-Santa Cruz,87,49
-Shasta,89,10
-Sierra,91,1
-Siskiyou,93,4
-Solano,95,22
-Sonoma,97,88
-Stanislaus,99,15
-Sutter,101,1
-Tehama,103,4
-Trinity,105,2
-Tulare,107,9
-Tuolumne,109,7
-Ventura,111,258
-Yolo,113,13
-Yuba,115,6
+"county","fips","est","rank","score"
+"Alameda",1,224,6,0
+"Alpine",3,1,49,1
+"Amador",5,4,39,1
+"Butte",7,15,27,1
+"Calaveras",9,0,56,1
+"Colusa",11,0,57,1
+"Contra Costa",13,106,12,0
+"Del Norte",15,0,58,1
+"El Dorado",17,20,23,1
+"Fresno",19,39,18,1
+"Glenn",21,2,43,1
+"Humboldt",23,9,32,1
+"Imperial",25,1,50,1
+"Inyo",27,5,37,1
+"Kern",29,30,21,1
+"Kings",31,2,44,1
+"Lake",33,1,51,1
+"Lassen",35,2,45,1
+"Los Angeles",37,13577,1,0
+"Madera",39,9,33,1
+"Marin",41,132,9,0
+"Mariposa",43,2,46,1
+"Mendocino",45,14,29,1
+"Merced",47,4,40,1
+"Modoc",49,1,52,1
+"Mono",51,2,47,1
+"Monterey",53,47,17,1
+"Napa",55,16,25,1
+"Nevada",57,16,26,1
+"Orange",59,510,2,0
+"Placer",61,31,20,1
+"Plumas",63,1,53,1
+"Riverside",65,174,7,0
+"Sacramento",67,98,13,0
+"San Benito",69,5,38,1
+"San Bernardino",71,109,11,0
+"San Diego",73,469,3,0
+"San Francisco",75,315,4,0
+"San Joaquin",77,18,24,1
+"San Luis Obispo",79,36,19,1
+"San Mateo",81,92,14,0
+"Santa Barbara",83,125,10,0
+"Santa Clara",85,149,8,0
+"Santa Cruz",87,49,16,1
+"Shasta",89,10,31,1
+"Sierra",91,1,54,1
+"Siskiyou",93,4,41,1
+"Solano",95,22,22,1
+"Sonoma",97,88,15,1
+"Stanislaus",99,15,28,1
+"Sutter",101,1,55,1
+"Tehama",103,4,42,1
+"Trinity",105,2,48,1
+"Tulare",107,9,34,1
+"Tuolumne",109,7,35,1
+"Ventura",111,258,5,0
+"Yolo",113,13,30,1
+"Yuba",115,6,36,1
