@@ -1,0 +1,23 @@
+---
+title: "Nightlife Metadata"
+output: html_notebook
+---
+
+source: https://www.census.gov/data/datasets/2016/econ/cbp/2016-cbp.html
+        County Businee Patterns 2016
+
+Classification Used: NAICS Code 722410
+
+Preparing and serving alcoholic beverages and known as bars, taverns, or nightclubs--are classified in Industry 722410, Drinking Places (Alcoholic Beverages);
+
+
+    Justification for not using other establishments under "72///	Accommodation and Food Services"
+
+
+      Providing food services where patrons generally order or select items and pay before eating, other than mobile food services, cafeterias, grill buffets, buffets, and snack and nonalcoholic beverage bars--are classified in U.S. Industry 722513, Limited-Service Restaurants;
+      
+      Preparing and serving meals for immediate consumption using cafeteria-style or buffet serving equipment, known as cafeterias, grill buffets, or buffets--are classified in U.S. Industry 722514, Cafeterias, Grill Buffets, and Buffets;
+      
+      Selling a specialty snack (e.g., ice cream, frozen yogurt, cookies, popcorn) or nonalcoholic beverage, except from mobile vehicles, for consumption on or near the premises--are classified in U.S. Industry 722515, Snack and Nonalcoholic Beverage Bars;
+      
+      Presenting live theatrical productions and providing food and beverages for consumption on the premises--are classified in Industry 711110, Theater Companies and Dinner Theaters.

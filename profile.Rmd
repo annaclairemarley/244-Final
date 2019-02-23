@@ -1,0 +1,58 @@
+---
+title: "California Demographics and Geographic Profile"
+author: "Barbara Rose Hoover"
+date: "2/9/2019"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+```{r}
+#diversity index 
+diversityindex <- read.csv("https://raw.githubusercontent.com/NeonTheorist/Diversity.Index/master/diversityindex.csv")
+
+ca_divindex<-diversityindex %>% 
+  filter(str_detect(`Location`, 'County')) %>%
+  filter(str_detect(`Location`, 'CA')) %>% 
+  separate(col = Location, into = c("County", "State"), sep = ",") %>% 
+  select(-State) %>% 
+  lapply(gsub, pattern=' County', replacement='') %>% 
+  as.data.frame() %>% 
+  select(County, Diversity.Index) 
+
+ca_divindex$County<- as.character(ca_divindex$County)
+names(ca_divindex) <- c("county", "div_index")
+div_fips<-merge(ca_divindex, fips, by="county", all = TRUE)
+names(div_fips) <- c("county", "div_index", "fips")
+ca_divindex<-merge(ca_geography, div_fips, by= "fips")
+ca_profile <- ca_divindex[c(1,6,7,2,3,4,5)]
+
+write.csv(ca_profile, file = "ca_profile.csv",row.names=FALSE)
+
+
+#get rid of non-counties from dataset
+counties <- diversityindex[grep(",", diversityindex$Location),]
+
+#separate Location column into County and State columns
+counties <- separate(data = counties, col = Location, into = c("County", "State"), sep = ",")
+
+#get rid of white spaces in State names
+counties$State <- str_trim(counties$State)
+
+#get rid of DC
+counties <- filter(counties, State != "DC")
+
+#rename awkwardly named columns
+new_names <- c("County", "State", "Diversity.Index", "Black", "AmInd.Alaska", "Asian", "NatHaw.PacIsl", "TwoOrMore", "Hisp.Lat.", "White")
+names(counties) <- new_names
+```
+
+```{r}
+coast<-read_csv("coast.csv") #counties with a coastline per wikipedia 
+
+coast<-coast %>% 
+  lapply(gsub, pattern=' County, California', replacement='')
+
