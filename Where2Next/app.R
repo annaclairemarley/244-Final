@@ -60,11 +60,11 @@ ui <- navbarPage(
   tabPanel("County Comparisions",
            sidebarPanel(
              selectInput("county1", "Select a County",
-                         choices = county_names,
+                         choices = ca_profile$county,
                          selected = 1),
-           selectInput("county2", "Select a Second County",
-                       choices = county_names,
-                       selected = 1)),
+             selectInput("county2", "Select a Second County",
+                         choices = ca_profile$county,
+                         selected = 1)),
            plotOutput("comparison_graph"))
 )
 

@@ -59,4 +59,21 @@ coast<-coast %>%
 
 coast$county<-as.character(coast$county) 
 merge(ca_profile, coast, by="county", all=TRUE)
-ca_profile<-[is.na(ca_profile)] <- 0
+```
+
+```{r}
+#rank
+df$rank<-NA
+df$rank[order(-df$est)] <- 1:nrow(df)
+```
+
+```{r}
+#score
+df$score<-ifelse(df$rank<=*qualifyer*, 1,0)
+```
+
+```{r}
+#writing to csv
+write.csv(df,file="df.csv",row.names = FALSE)
+```
+
