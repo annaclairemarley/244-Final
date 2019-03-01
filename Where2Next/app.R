@@ -22,8 +22,10 @@ ui <- navbarPage(theme = shinytheme("darkly"),
   # 3 panels all with separate inputs and outputs
   # Tab 1 - Summary 
   tabPanel("Summary",
-           "Data Summary", align = "center",
-           img(src = 'cityscape.jpeg'),
+           h1("Data Summary", align = "center"),
+           img(src = "cityscape1.jpg"), 
+           align = "center",
+           p("Explain/summarize the data here")),
   
   # Tab 2 - Counties Results map based on selected inputs 
   tabPanel("Results Map",
