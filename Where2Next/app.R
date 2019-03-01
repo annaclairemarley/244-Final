@@ -21,7 +21,8 @@ ui <- navbarPage(
   
   # 3 panels all with separate inputs and outputs
   # Tab 1 - Summary 
-  tabPanel("Summary"),
+  tabPanel("Summary",
+           "Data Summary", align = "center"),
   
   # Tab 2 - Counties Results map based on selected inputs 
   tabPanel("Results Map",
@@ -41,11 +42,7 @@ ui <- navbarPage(
                          min = 500,
                          max = 3000,
                          value =  c(1000,2000),
-                         step = 500),
-             checkboxGroupInput("attributes", "What's Important to You in a New City?",
-                                choices = list("Sports Teams", "Nightlife", "Entertainment", 
-                                               "Restaurants", "Parks and Outdoor Recreation", "Traffic",
-                                               "Environmental Health"))
+                         step = 500)
             
              ),
            
