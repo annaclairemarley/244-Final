@@ -1,0 +1,63 @@
+---
+title: "Map"
+author: "Barbara Rose Hoover"
+date: "2/27/2019"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+```{r cars}
+library(shiny)
+library(tidyverse)
+library(sf)
+library(shinythemes)
+library(tmap)
+library(leaflet)
+```
+
+```{r}
+ca_counties <- read_sf(dsn = ".", layer = "california_county_shape_file") # Read data
+st_crs(ca_counties) = 4326 
+```
+
+```{r}
+ca_dams <- read_sf(dsn = ".", layer = "California_Jurisdictional_Dams") %>% # Read data
+  rename(Condition = Condition_)
+```
+
+```{r pressure, echo=FALSE}
+library(tidyverse)
+attributes_demo <- read_csv("attributes_demo.csv")
+demo_og<-attributes_demo %>% 
+  mutate(div=ifelse(div_index>.6,1,0)) %>% 
+  select(county,ent,rec,coast,div) %>% 
+  gather(attribute, frequency, -county) %>% 
+  filter(frequency>0)
+
+a<-as.factor(demo_og$county)
+colnames(demo_og)[1]<-"NAME"
+```
+
+```{r}
+ca_demo<-merge(ca_counties, demo_og, by="NAME", all.x=TRUE)
+colnames(ca_counties)
+```
+
+
+
+```{r}
+demo<-read_csv("attributes_demo.csv")
+demo<-demo %>% 
+          mutate(div=ifelse(div_index>.6,1,0)) 
+
+#to logical 
+demo$coast <- demo$coast > 0
+demo$div <- demo$div > 0
+demo$ent <- demo$ent > 0
+demo$rec <- demo$rec > 0
+```
+
