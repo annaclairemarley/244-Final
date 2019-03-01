@@ -22,7 +22,8 @@ ui <- navbarPage(
   # 3 panels all with separate inputs and outputs
   # Tab 1 - Summary 
   tabPanel("Summary",
-           "Data Summary", align = "center"),
+           "Data Summary", align = "center",
+           imageOutput("cityscape")),
   
   # Tab 2 - Counties Results map based on selected inputs 
   tabPanel("Results Map",
@@ -62,12 +63,18 @@ ui <- navbarPage(
              selectInput("county2", "Select a Second County",
                          choices = county_names,
                          selected = 1)),
-           plotOutput("comparison_graph"))
+           plotOutput("comparison_graph"),
+           "Variable Comparison", align = "left")
 )
 
 # Define server logic required to draw a histogram
 server <- function(input, output) {
   
+  output$cityscape <- renderImage({
+    list(src = 'cityscape.png',
+         width = 400,
+         height = 300)
+  })
   output$distPlot <- renderPlot({
     # generate bins based on input$bins from ui.R
     x    <- faithful[, 2] 
