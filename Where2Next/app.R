@@ -14,16 +14,16 @@ library(RColorBrewer)
 # Read in Data:
 
 # Create user interface (ui)
-ui <- navbarPage(
+ui <- navbarPage(theme = shinytheme("darkly"),
   
   # Application title
-  "Where to Next",
+  "Where 2 Next",
   
   # 3 panels all with separate inputs and outputs
   # Tab 1 - Summary 
   tabPanel("Summary",
            "Data Summary", align = "center",
-           imageOutput("cityscape")),
+           img(src = 'cityscape.jpeg'),
   
   # Tab 2 - Counties Results map based on selected inputs 
   tabPanel("Results Map",
@@ -70,11 +70,6 @@ ui <- navbarPage(
 # Define server logic required to draw a histogram
 server <- function(input, output) {
   
-  output$cityscape <- renderImage({
-    list(src = 'cityscape.png',
-         width = 400,
-         height = 300)
-  })
   output$distPlot <- renderPlot({
     # generate bins based on input$bins from ui.R
     x    <- faithful[, 2] 
