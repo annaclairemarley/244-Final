@@ -1,0 +1,31 @@
+---
+title: "Final Code"
+author: "Sara Orofino"
+date: "3/1/2019"
+output: html_document
+---
+**Final Code for graphs - run this markdown before launching the app**  
+
+Packages:  
+```{r}
+
+
+
+```
+
+County Names for App Selection:  
+```{r}
+county_names <- c("Alameda", "Alpine", "Amador", "Butte", "Calaveras", "Colusa",
+                                     "Contra Costa", "Del Norte","El Dorado", "Fresno", "Glenn",
+                                     "Humbolt", "Imperial", "Inyo", "Kern",  "Kings", "Lake", 
+                                     "Lassen", "Los Angeles", "Madera", "Marin", "Mariposa", 
+                                     "Mendocino", "Merced", "Modoc", "Mono", "Monterey", "Napa",
+                                     "Nevada", "Orange", "Placer", "Plumas", "Riverside", "Sacramento",
+                                     "San Benito", "San Bernadino", "San Diego", "San Francisco", 
+                                     "San Joaquin", "San Louis Obispo", "San Mateo", "Santa Barbara",
+                                     "Santa Clara", "Santa Cruz", "Shasta",  "Sierra", "Siskiyou", 
+                                     "Solano", "Sonoma", "Stanislaus", "Sutter", "Tehama",
+                                     "Trinity", "Tulare", "Tuolumne", "Ventura", "Yolo", "Yuba")
+
+```
+
