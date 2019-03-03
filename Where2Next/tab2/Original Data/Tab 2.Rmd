@@ -1,0 +1,194 @@
+---
+title: "Tab 2"
+author: "Barbara Rose Hoover"
+date: "3/2/2019"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+library(shiny)
+library(sf)
+library(leaflet)
+library(tidyverse)
+```
+
+#california county shape files
+```{r}
+county<-read_sf(dsn = ".", layer = "california_county_shape_file") # Read data
+st_crs(county) = 4326 
+
+ca_county<-county %>% 
+  select(1,2,7,10) %>%
+  rename(county=`NAME`)  
+```
+
+#rent data
+```{r}
+rent<-rent_county %>% 
+  select(-`X1`, -`FIPS`) %>% 
+  gather(bedroom, cost, -county) %>% 
+  group_by(county) %>% 
+  mutate(mean.rent=mean(cost))
+```
+
+#Mountain and Coast data
+1)Filtering business code for places with ski resorts
+2)combine with coast data
+```{r}
+ca_naics<-read_csv("ca_naics_code.csv")
+
+
+#filtering for ski resorts (NAICS code = 713920)
+ski_ca<- ca_naics %>% 
+  filter(naics == 713920) %>% #filter to get only counties with ski resorts to identify mountains
+  transform(fipscty = as.numeric(fipscty)) %>% 
+  rename(fips=fipscty) %>% 
+  transform(est = "mountain") %>% 
+  rename(mt=est) 
+
+geo<-ski_ca %>% 
+  full_join(county_fips, by="fips") %>% #adding county neames to mountain data
+  full_join(coast, by="county") %>% #combining rows for coast and mountain into one row names "coast_mountain"
+  replace_na(list(mt = "", coast = "")) %>% 
+  unite("geo", "mt", "coast", remove = TRUE, sep="") %>% #combine coast and mountain into one column
+  select(county, geo)
+```
+write csv for reference
+```{r}
+write.csv(geo, file="Coast or Mountain Classification.csv", row.names = FALSE)
+```
+
+#Rural vs Urban
+
+```{r data}
+#https://www.cdc.gov/nchs/data_access/urban_rural.htm
+#https://www.cdc.gov/nchs/data_access/urban_rural.htm#Data_Files_and_Documentation
+
+```
+Classification Guide
+```{r}
+#Classification: https://www.cdc.gov/nchs/data/data_acces_files/NCHSUrbruralFileDocumentationInternet2.pdf
+
+code<-c(1,2,3,4,5,6)
+class<-c("Large central metro", "Large fringe metro", "Medium metro", "Small metro", "Micropolitan", "Noncore")
+metro_code<-data.frame(code, class)
+```
+making data frame for CA only with relevant columns 
+```{r}
+urb_rur<-NCHSURCodes2013 %>%
+  rename(county=`County name`) %>% 
+  rename(fips=`FIPS code`) %>%
+  rename(code=`2013 code`) %>% 
+  filter(`State Abr.`=="CA") %>%
+  transform(fips = fips-6000) %>% 
+  select(1,3,4,7) %>% 
+  lapply(gsub, pattern=' County', replacement='') %>% 
+  data.frame(stringsAsFactors = FALSE) %>% 
+  transform(code = as.numeric(code)) %>%
+  mutate(metro=ifelse(code>=4, "rural", "city"))#classify rural and city
+```
+
+Assigning classification to codes in urb_rur
+```{r}
+metro<-urb_rur %>% 
+  full_join(metro_code, by = "code") %>% 
+  rename(metro_code=code) %>% 
+  rename(metro_class=class)
+```
+Save as csv
+```{r}
+write.csv(metro, file="Urban Rural Classification.csv", row.names = FALSE)
+```
+
+#Combining Coastal/Mt and Urban/Rural data
+```{r}
+metro_geo<-full_join(metro, geo, by="county")
+```
+
+#Combining rent, Coastal/Mt and Urban/Rural data
+```{r}
+rent_metro_geo<-full_join(rent, metro_geo, by="county")
+```
+
+#Combining rent, Coastal/Mt and Urban/Rural data, county shape file
+
+```{r}
+tab_2<-full_join(ca_county, rent_metro_geo, by="county")
+```
+#saving as csv
+```{r}
+st_write(tab_2, "tab_2.shp")
+```
+
+-----------------------------------------
+#coast or mt UI
+```{r}
+  radioButtons("geo", label = h3("Beach or Slopes"),
+    choices = list("Coast" = "coast", "Mountains" = "mountains", "Don't Care" = "na"), 
+    selected = "na")
+```
+
+#urban or rural UI
+```{r}
+  radioButtons("metro", label = h3("Big City or Small Town"),
+    choices = list("City" = "city", "Rural" = "rural", "Don't Care" = "na"), 
+    selected = "na")
+```
+
+#Rent: BEDRoom
+```{r}
+checkboxGroupInput("bedrm", label = h3("How Many Bed Rooms?"), 
+    choices = list("Studio" = "studio", "One Bed Room" = "one_bed", "Two Bed Room" = "two_bed", "Three Bed Room" = "three_bed"),
+    selected = "studio")
+```
+
+#Price
+```{r}
+sliderInput("rent", label = h3("Max Rent Budget"), min = 0, 
+        max = 4000, value = 1000)
+```
+
+
+```{r}
+output$map <- renderLeaflet({
+
+    dat <- tab_2
+    
+    #filter for coast/mountain
+    if(input$geo != "na"){
+        dat <- dat[which(dat$coast_mountain == input$geo),]
+
+    }
+    #filter for metro classification
+    if(input$metro != "na"){
+        dat <- dat[which(dat$metro == input$metro),]
+
+    }
+    #filter for bedrooms and rent max
+    dat_rent<-dat %>%
+      filter(bedroom %in% input$bedrm) %>% 
+      filter(cost <= input$rent)
+    
+    #create map
+    leaflet() %>% 
+      addTiles() %>% 
+      addPolygons(data = dat_rent)
+      
+
+})
+```
+
+
+
+
+```{r}
+tab_2<-read_sf(dsn = ".", layer = "tab_2") # Read data
+st_crs(tab_2) = 4326 
+colnames(tab_2)
+```
+
+
