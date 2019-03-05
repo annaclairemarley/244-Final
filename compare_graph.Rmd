@@ -1,0 +1,152 @@
+---
+title: "Comparison graph"
+author: "AnnaClaire Marley"
+date: "3/1/2019"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+library(tidyverse)
+
+```
+
+
+Health:
+
+```{r}
+
+health <- read_csv("health_rank_ca.csv")
+
+# health ranks
+heal <- health %>% 
+  select(county, rank) %>% 
+  rename(health_rank = rank)
+
+```
+
+
+Recreation:
+```{r}
+
+recreation <- read_csv("recreation_ca.csv")
+
+# recreation ranks
+rec <- recreation %>% 
+  mutate(area = entertainment$area) %>% 
+  mutate(rec_area = est/area) %>% 
+  arrange(-rec_area) %>% 
+  mutate(rec_rank = rank3$rank) %>% 
+  arrange(county) %>% 
+  select(county, rec_area, rec_rank)
+
+```
+
+
+Diversity:
+```{r}
+
+diversity <- read_csv("ca_profile.csv")
+
+# diversity ranks
+div <- diversity %>% 
+  select(county, div_index) %>% 
+  arrange(-div_index) %>% 
+  mutate(div_rank = rank3$rank) %>% 
+  arrange(county)
+
+
+```
+
+Entertainment
+
+```{r}
+
+entertainment <- read_csv("entertainment_ca.csv")
+
+entertainment$area <- diversity$land_area_sqml
+
+rank3 <- entertainment %>% 
+  arrange(rank)
+
+# entertainment ranks
+ent <- entertainment %>% 
+  mutate(estab_area = est/area) %>% 
+  arrange(-estab_area) %>% 
+  mutate(estab_rank = rank3$rank) %>% 
+  select(county, estab_area, estab_rank) %>% 
+  arrange(county)
+
+
+
+```
+
+Nightlife
+```{r}
+
+night_life <- read_csv("night_life_ca.csv")
+
+
+night_norm <- night_life %>% 
+  mutate(area = entertainment$area) %>% 
+  rename(establishment = est) %>% 
+  mutate(drink_area = establishment/area) %>% 
+  select(county, drink_area) %>% 
+  arrange(-drink_area) %>% 
+  mutate(night_rank = rank3$rank) %>% 
+  arrange(county)
+
+```
+
+
+Master data frame with ranks and values
+```{r}
+
+
+master <- ent %>% 
+  mutate(div_index = div$div_index) %>% 
+  mutate(div_rank = div$div_rank) %>% 
+  mutate(rec_area = rec$rec_area) %>% 
+  mutate(rec_rank = rec$rec_rank) %>% 
+  mutate(health_rank = heal$health_rank) %>% 
+  mutate(night_rank = night_norm$night_rank) %>% 
+  mutate(night_area = night_norm$drink_area) %>% 
+  mutate(ent_area = ent$estab_area) %>% 
+  mutate(ent_rank = ent$estab_rank)
+
+master_ranks <- master %>% 
+  select(county, div_rank, rec_rank, health_rank, night_rank, ent_rank) 
+
+write.csv(master_ranks,'master_ranks.csv')
+  
+```
+
+Trial graph
+
+```{r}
+
+master_tidy <- read_csv("master_tidy.csv") %>% 
+  select(county, rank, rank_name)
+
+compare_graph <- master_tidy %>% 
+  filter( county == "San Francisco" | county == "Santa Clara") %>% 
+  ggplot(aes(x = rank_name, y = rank)) +
+  geom_col(aes(fill = county), position = "dodge") +
+  scale_y_continuous(expand = c(0,0)) +
+  labs(
+    x = "Type",
+    y = "Rank"
+  ) +
+  coord_flip() +
+  theme_bw()
+
+compare_graph
+
+```
+
+
+
+
