@@ -120,6 +120,11 @@ master <- ent %>%
 master_ranks <- master %>% 
   select(county, div_rank, rec_rank, health_rank, night_rank, ent_rank) 
 
+master_value <- master %>% 
+  select(county, estab_area, div_index, rec_area, health_rank, night_area, ent_area)
+
+write.csv(master_value,'master_value.csv')
+
 write.csv(master_ranks,'master_ranks.csv')
   
 ```
@@ -147,6 +152,29 @@ compare_graph
 
 ```
 
+```{r}
+library(plotly)
+
+paralell_graph <- master_tidy %>%
+  plot_ly(type = 'parcoords',
+          line = list(color = ~rank_name,
+                      colorscale = list(c(0,'red'),c(0.5,'green'),c(1,'blue'))),
+          dimensions = list(
+            list(range = c(1,58),
+                 label = 'Sepal Width', values = ~sepal_width),
+            list(range = c(1,58),
+                 constraintrange = c(5,6),
+                 label = 'Sepal Length', values = ~sepal_length),
+            list(range = c(1,58),
+                 label = 'Petal Width', values = ~petal_width),
+            list(range = c(1,58),
+                 label = 'Petal Length', values = ~petal_length)
+            )
+          )
+
+paralell_graph
+
+```
 
 
 
