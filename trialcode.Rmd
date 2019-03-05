@@ -10,6 +10,8 @@ knitr::opts_chunk$set(echo = TRUE)
 
 library(tidyverse)
 library(janitor)
+library(kableExtra)
+
 ```
 
 County names vector for easier future use:
@@ -136,5 +138,18 @@ nl_county_map <- county_outline +
   coord_sf(datum = NA)
 
 nl_county_map
+```
+
+Table for Tab 3 Comparison:
+```{r}
+
+rank_data <- read_csv("ca_profile.csv")
+
+## Kable table outline code (unsure which csv to use so using rank_data as placeholder)
+
+comparison_table <- kable(rank_data, col.names = c("Attribute 1", "Attribute 2", "Attribute 3", "Attribute 4"),
+                          align = "c") %>% 
+  kable_styling(bootstrap_options = "striped", full_width = F) %>% 
+  column_spec(1, bold = T)
 ```
 
