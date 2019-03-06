@@ -85,10 +85,10 @@ server <- function(input, output) {
     county_outline
   })
   
-  output$comparison_graph <- renderPlot({
+  output$comparison_graph <- renderPlotly({
 
     master_ranks %>%
-    filter(county == "county1" | county == "county2") %>% 
+    filter(county == input$county1 | county == input$county2) %>% 
     plot_ly(type = 'parcoords',
               line = list(color = ~county), 
               dimensions = list(
@@ -106,6 +106,8 @@ server <- function(input, output) {
               )
       )
   })
+  
+  
 }
 
 # Run the application 
