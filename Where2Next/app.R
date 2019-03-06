@@ -85,6 +85,27 @@ server <- function(input, output) {
     county_outline
   })
   
+  output$comparison_graph <- renderPlot({
+
+    master_ranks %>%
+      filter(county == "county1" | county == "county2") %>% 
+      plot_ly(type = 'parcoords',
+              line = list(color = ~county), 
+              dimensions = list(
+                list(range = c(58,1),
+                     label = 'Entertainment', values = ~ent_rank),
+                list(range = c(58,1),
+                     constraintrange = c(5,6),
+                     label = 'Night life', values = ~night_rank),
+                list(range = c(58,1),
+                     label = 'Recreation', values = ~rec_rank),
+                list(range = c(58,1),
+                     label = 'Health', values = ~health_rank),
+                list(range = c(58,1),
+                     label = 'Diversity', values = ~div_rank)
+              )
+      )
+  })
 }
 
 # Run the application 

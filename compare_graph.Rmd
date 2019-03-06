@@ -154,21 +154,29 @@ compare_graph
 
 ```{r}
 library(plotly)
+library(RColorBrewer)
+library(viridis)
 
-paralell_graph <- master_tidy %>%
+
+just_2 <- master_ranks %>% 
+  filter(county == "Alameda" | county == "Alpine")
+
+
+paralell_graph <- just_2 %>%
   plot_ly(type = 'parcoords',
-          line = list(color = ~rank_name,
-                      colorscale = list(c(0,'red'),c(0.5,'green'),c(1,'blue'))),
+          line = list(color = ~county), 
           dimensions = list(
-            list(range = c(1,58),
-                 label = 'Sepal Width', values = ~sepal_width),
-            list(range = c(1,58),
+            list(range = c(58,1),
+                 label = 'Entertainment', values = ~ent_rank),
+            list(range = c(58,1),
                  constraintrange = c(5,6),
-                 label = 'Sepal Length', values = ~sepal_length),
-            list(range = c(1,58),
-                 label = 'Petal Width', values = ~petal_width),
-            list(range = c(1,58),
-                 label = 'Petal Length', values = ~petal_length)
+                 label = 'Night life', values = ~night_rank),
+            list(range = c(58,1),
+                 label = 'Recreation', values = ~rec_rank),
+            list(range = c(58,1),
+                 label = 'Health', values = ~health_rank),
+            list(range = c(58,1),
+                 label = 'Diversity', values = ~div_rank)
             )
           )
 

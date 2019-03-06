@@ -153,3 +153,11 @@ comparison_table <- kable(rank_data, col.names = c("Attribute 1", "Attribute 2",
   column_spec(1, bold = T)
 ```
 
+Graph for table 3
+
+```{r}
+
+
+
+```
+
