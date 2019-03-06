@@ -143,14 +143,20 @@ nl_county_map
 Table for Tab 3 Comparison:
 ```{r}
 
-rank_data <- read_csv("ca_profile.csv")
+values <- read_csv("master_value.csv") %>%
+  dplyr::select(county, estab_area, div_index, rec_area, night_area, ent_area, health_rank) %>% 
+  filter(county == "Santa Barbara" | county == "Los Angeles")
 
-## Kable table outline code (unsure which csv to use so using rank_data as placeholder)
+## Kable table 
 
-comparison_table <- kable(rank_data, col.names = c("Attribute 1", "Attribute 2", "Attribute 3", "Attribute 4"),
-                          align = "c") %>% 
-  kable_styling(bootstrap_options = "striped", full_width = F) %>% 
-  column_spec(1, bold = T)
+comparison_table <- kable(values, col.names = c("County", "Attribute 2", "Diversity", "Recreation",
+                                                "Nightlife", "Entertainment", "Health Rank"),
+                          align = "c", digits = 3) %>% 
+  kable_styling(bootstrap_options = c("striped", "hovered", "boardered"), full_width = F) %>% 
+  column_spec(1, bold = T) %>% 
+  add_header_above(c(" " = 2, "Number of Establishments per Area" = 4, " " = 1)) 
+
+comparison_table
 ```
 
 Graph for table 3
