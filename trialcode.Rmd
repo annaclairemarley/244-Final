@@ -143,6 +143,7 @@ nl_county_map
 Table for Tab 3 Comparison:
 ```{r}
 
+# Filter for just two counties (to represent the two inputs) and select only the metrics that will show up in the graph:
 values <- read_csv("master_value.csv") %>%
   dplyr::select(county, estab_area, div_index, rec_area, night_area, ent_area, health_rank) %>% 
   filter(county == "Santa Barbara" | county == "Los Angeles")
