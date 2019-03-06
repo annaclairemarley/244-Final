@@ -88,8 +88,8 @@ server <- function(input, output) {
   output$comparison_graph <- renderPlot({
 
     master_ranks %>%
-      filter(county == "county1" | county == "county2") %>% 
-      plot_ly(type = 'parcoords',
+    filter(county == "county1" | county == "county2") %>% 
+    plot_ly(type = 'parcoords',
               line = list(color = ~county), 
               dimensions = list(
                 list(range = c(58,1),

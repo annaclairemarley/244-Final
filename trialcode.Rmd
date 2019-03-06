@@ -157,7 +157,7 @@ Graph for table 3
 
 ```{r}
 
-
+master_ranks <- read_csv("master_ranks.csv")
 
 ```
 
