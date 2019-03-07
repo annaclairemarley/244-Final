@@ -107,7 +107,7 @@ Merging Rank and Values/ making percentile
 ```{r}
 master_ranks <- read_csv("master_ranks.csv")
 
-master_rank<-master_ranks %>% 
+master_percentile<-master_ranks %>% 
   select(-X1) %>% 
   gather(category, rank, -county) %>% 
   mutate(percentile= 1-rank/58)
@@ -170,7 +170,7 @@ Bar graph percentiles
 master_tidy <- read_csv("master_tidy.csv") %>% 
   select(county, rank, rank_name)
 
-compare_graph2 <- master_rank %>% 
+compare_graph2 <- master_percentile %>% 
   filter( county == "San Francisco" | county == "Santa Clara") %>% 
   ggplot(aes(x = category, y = percentile)) +
   geom_col(aes(fill = county), position = "dodge") +
