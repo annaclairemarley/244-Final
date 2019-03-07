@@ -11,10 +11,7 @@ library(shinythemes)
 library(tidyverse)
 library(RColorBrewer)
 library(plotly)
-<<<<<<< HEAD
-=======
 
->>>>>>> b9b36d38b143abaa31ee4e7119dcfc478f29e7b8
 
 # Read in Data:
 
@@ -71,11 +68,12 @@ ui <- navbarPage(theme = shinytheme("darkly"),
              selectInput("county2", "Select a Second County",
                          choices = county_names,
                          selected = 1)),
+             "Variable Comparison", align = "left",
            mainPanel(
+             h1("County Metric Rankings"),
              plotlyOutput("comparison_graph"),
-             tableOutput("comparison_table"),
-             "Variable Comparison", align = "left")  
-           )
+             tableOutput("comparison_table")
+           ))
            
 )
 
