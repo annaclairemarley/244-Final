@@ -15,7 +15,7 @@ library(tidyverse)
 ```
 County Area df
 ```{r}
-co_profile<-read_csv("ca_profile.csv")
+ca_profile<-read_csv("ca_profile.csv")
 
 county_area<-ca_profile %>%
   mutate(area=total_area_sqml) %>% 
@@ -70,7 +70,7 @@ Entertainment
 
 entertainment <- read_csv("entertainment_ca.csv")
 
-entertainment<-merge(entertainment, area, by = "county")
+entertainment<-merge(entertainment, county_area, by = "county")
 
 # entertainment ranks
 ent <- entertainment %>% 
@@ -105,7 +105,9 @@ night_norm <- night_life %>%
 Merging Rank and Values/ making percentile 
 
 ```{r}
-master_rank<-master_ranks %>% 
+master_ranks <- read_csv("master_ranks.csv")
+
+master_percentile<-master_ranks %>% 
   select(-X1) %>% 
   gather(category, rank, -county) %>% 
   mutate(percentile= 1-rank/58)
@@ -161,6 +163,32 @@ compare_graph <- master_tidy %>%
 compare_graph
 
 ```
+
+Bar graph percentiles
+```{r}
+
+master_tidy <- read_csv("master_tidy.csv") %>% 
+  select(county, rank, rank_name)
+
+compare_graph2 <- master_percentile %>% 
+  filter( county == "San Francisco" | county == "Santa Clara") %>% 
+  ggplot(aes(x = category, y = percentile)) +
+  geom_col(aes(fill = county), position = "dodge") +
+  scale_y_continuous(expand = c(0,0), limits = c(0,1)) +
+  labs(
+    x = "Type",
+    y = "Percentile"
+  ) +
+  coord_flip() +
+  theme_bw()
+
+compare_graph2
+
+```
+
+
+
+
 
 ```{r}
 library(plotly)
