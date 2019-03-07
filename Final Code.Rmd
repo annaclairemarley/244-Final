@@ -30,3 +30,24 @@ county_names <- c("Alameda", "Alpine", "Amador", "Butte", "Calaveras", "Colusa",
 
 ```
 
+Tab 2: 
+
+```{r}
+
+
+
+
+```
+
+
+Tab 3:
+
+```{r}
+
+# Create values data frame to feed into the Kable table for Tab 3
+
+values <- read_csv("master_value.csv") %>%
+  dplyr::select(county, div_index, rec_area, night_area, ent_area, health_rank) 
+
+```
+

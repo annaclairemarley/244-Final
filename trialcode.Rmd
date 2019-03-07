@@ -147,7 +147,7 @@ Table for Tab 3 Comparison:
 values <- read_csv("master_value.csv") %>%
   dplyr::select(county, div_index, rec_area, night_area, ent_area, health_rank) 
 
-## Kable table 
+## Kable table trial
 
 comparison_table <- kable(values, col.names = c("County", "Attribute 2", "Diversity", "Recreation",
                                                 "Nightlife", "Entertainment", "Health Rank"),
@@ -162,6 +162,7 @@ comparison_table
 Graph for Tab 3
 
 ```{r}
+master_ranks <- read_csv("master_ranks.csv")
 
 master_ranks %>%
     filter(county == input$county1 | county == input$county2) %>% 

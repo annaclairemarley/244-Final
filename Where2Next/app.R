@@ -67,7 +67,7 @@ ui <- navbarPage(theme = shinytheme("darkly"),
              selectInput("county2", "Select a Second County",
                          choices = county_names,
                          selected = 1)),
-           plotOutput("comparison_graph"),
+           plotlyOutput("comparison_graph"),
            tableOutput("comparison_table"),
            "Variable Comparison", align = "left")
 )
@@ -76,6 +76,7 @@ ui <- navbarPage(theme = shinytheme("darkly"),
 server <- function(input, output) {
   library(dplyr)
   library(kableExtra)
+  library(plotly)
   output$distPlot <- renderPlot({
     # generate bins based on input$bins from ui.R
     x    <- faithful[, 2] 
@@ -88,10 +89,31 @@ server <- function(input, output) {
   output$ca_map <- renderPlot({
     county_outline
   })
+  # Data frame for ploting:
+  observeEvent(input$county2, {
+    plot_df <- master_ranks %>% 
+      filter(county == input$county1 | county == input$county2)
+    
+    output$comparison_graph <- renderPlotly({
+      plot_ly(plot_df, type = 'parcoords',
+              line = list(color = ~county), 
+              dimensions = list(
+                list(range = c(58,1),
+                     label = 'Entertainment', values = ~ent_rank),
+                list(range = c(58,1),
+                     constraintrange = c(5,6),
+                     label = 'Night life', values = ~night_rank),
+                list(range = c(58,1),
+                     label = 'Recreation', values = ~rec_rank),
+                list(range = c(58,1),
+                     label = 'Health', values = ~health_rank),
+                list(range = c(58,1),
+                     label = 'Diversity', values = ~div_rank)
+              ))
+  }
+    
   
-  output$comparison_graph <- renderPlotly({
-
-    comparison_graph
+      )
   })
   
   output$comparison_table <- function() {
