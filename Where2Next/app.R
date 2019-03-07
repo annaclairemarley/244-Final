@@ -105,7 +105,7 @@ server <- function(input, output) {
     
     output$comparison_graph <- renderPlotly({
       plot_ly(plot_df, type = 'parcoords',
-              line = list(color = ~county), 
+              line = list(color = ~county),
               dimensions = list(
                 list(range = c(58,1),
                      label = 'Diversity', values = ~div_rank),
