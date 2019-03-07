@@ -10,7 +10,7 @@ library(shiny)
 library(shinythemes)
 library(tidyverse)
 library(RColorBrewer)
-
+library(plotly)
 
 # Read in Data:
 
@@ -67,9 +67,12 @@ ui <- navbarPage(theme = shinytheme("darkly"),
              selectInput("county2", "Select a Second County",
                          choices = county_names,
                          selected = 1)),
-           plotlyOutput("comparison_graph"),
-           tableOutput("comparison_table"),
-           "Variable Comparison", align = "left")
+           mainPanel(
+             plotlyOutput("comparison_graph"),
+             tableOutput("comparison_table"),
+             "Variable Comparison", align = "left")  
+           )
+           
 )
 
 # Define server logic required to draw a histogram
