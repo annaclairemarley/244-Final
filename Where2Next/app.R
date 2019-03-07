@@ -10,7 +10,7 @@ library(shiny)
 library(shinythemes)
 library(tidyverse)
 library(RColorBrewer)
-library(plotly)
+
 
 # Read in Data:
 
@@ -24,7 +24,8 @@ ui <- navbarPage(theme = shinytheme("darkly"),
   # Tab 1 - Summary 
   tabPanel("Summary",
            h1("Data Summary", align = "center"),
-           img(src = "cityscape1.jpg"), 
+           img(src = "cityscape1.jpg",
+               width = 500, height = 400), 
            align = "center",
            p("Explain/summarize the data here")),
   
@@ -57,7 +58,7 @@ ui <- navbarPage(theme = shinytheme("darkly"),
            ),
   
   
-  # Tab 3 - Graph and map comparing selected counties
+  # Tab 3 - Graph and table comparing selected counties
   tabPanel("County Comparisions",
            sidebarPanel(
              selectInput("county1", "Select a County",
@@ -67,12 +68,14 @@ ui <- navbarPage(theme = shinytheme("darkly"),
                          choices = county_names,
                          selected = 1)),
            plotOutput("comparison_graph"),
+           tableOutput("comparison_table"),
            "Variable Comparison", align = "left")
 )
 
 # Define server logic required to draw a histogram
 server <- function(input, output) {
-  
+  library(dplyr)
+  library(kableExtra)
   output$distPlot <- renderPlot({
     # generate bins based on input$bins from ui.R
     x    <- faithful[, 2] 
@@ -88,27 +91,20 @@ server <- function(input, output) {
   
   output$comparison_graph <- renderPlotly({
 
-    master_ranks %>%
-    filter(county == input$county1 | county == input$county2) %>% 
-    plot_ly(type = 'parcoords',
-              line = list(color = ~county), 
-              dimensions = list(
-                list(range = c(58,1),
-                     label = 'Entertainment', values = ~ent_rank),
-                list(range = c(58,1),
-                     constraintrange = c(5,6),
-                     label = 'Night life', values = ~night_rank),
-                list(range = c(58,1),
-                     label = 'Recreation', values = ~rec_rank),
-                list(range = c(58,1),
-                     label = 'Health', values = ~health_rank),
-                list(range = c(58,1),
-                     label = 'Diversity', values = ~div_rank)
-              )
-      )
+    comparison_graph
   })
   
-  
+  output$comparison_table <- function() {
+    req(input$county1, input$county2)
+    values %>% 
+      filter(county == input$county1 | county == input$county2) %>% 
+      knitr::kable("html", col.names = c("County", "Diversity", "Recreation",
+                                         "Nightlife", "Entertainment", "Health Rank"),
+                   align = "c", digits = 3) %>% 
+      kable_styling(bootstrap_options = c("striped", "hovered", "boardered"), full_width = F) %>% 
+      column_spec(1, bold = T) %>% 
+      add_header_above(c(" " = 1, "Number of Establishments per Area" = 4, " " = 1))
+  }
 }
 
 # Run the application 

@@ -145,8 +145,7 @@ Table for Tab 3 Comparison:
 
 # Filter for just two counties (to represent the two inputs) and select only the metrics that will show up in the graph:
 values <- read_csv("master_value.csv") %>%
-  dplyr::select(county, estab_area, div_index, rec_area, night_area, ent_area, health_rank) %>% 
-  filter(county == "Santa Barbara" | county == "Los Angeles")
+  dplyr::select(county, div_index, rec_area, night_area, ent_area, health_rank) 
 
 ## Kable table 
 
@@ -160,11 +159,28 @@ comparison_table <- kable(values, col.names = c("County", "Attribute 2", "Divers
 comparison_table
 ```
 
-Graph for table 3
+Graph for Tab 3
 
 ```{r}
 
-master_ranks <- read_csv("master_ranks.csv")
+master_ranks %>%
+    filter(county == input$county1 | county == input$county2) %>% 
+    plot_ly(type = 'parcoords',
+              line = list(color = ~county), 
+              dimensions = list(
+                list(range = c(58,1),
+                     label = 'Entertainment', values = ~ent_rank),
+                list(range = c(58,1),
+                     constraintrange = c(5,6),
+                     label = 'Night life', values = ~night_rank),
+                list(range = c(58,1),
+                     label = 'Recreation', values = ~rec_rank),
+                list(range = c(58,1),
+                     label = 'Health', values = ~health_rank),
+                list(range = c(58,1),
+                     label = 'Diversity', values = ~div_rank)
+              )
+      )
 
 ```
 
