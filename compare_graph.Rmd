@@ -13,36 +13,39 @@ knitr::opts_chunk$set(echo = TRUE)
 library(tidyverse)
 
 ```
+County Area df
+```{r}
+co_profile<-read_csv("ca_profile.csv")
 
+county_area<-ca_profile %>%
+  mutate(area=total_area_sqml) %>% 
+  select(county, area) 
+```
 
 Health:
 
 ```{r}
-
 health <- read_csv("health_rank_ca.csv")
 
 # health ranks
-heal <- health %>% 
+healh <- health %>% 
   select(county, rank) %>% 
   rename(health_rank = rank)
-
 ```
-
 
 Recreation:
 ```{r}
-
 recreation <- read_csv("recreation_ca.csv")
 
+rec_df<-merge(county_area, recreation, by="county")
+
+
 # recreation ranks
-rec <- recreation %>% 
-  mutate(area = entertainment$area) %>% 
+rec <- rec_df %>% 
   mutate(rec_area = est/area) %>% 
   arrange(-rec_area) %>% 
-  mutate(rec_rank = rank3$rank) %>% 
-  arrange(county) %>% 
+  mutate(rec_rank=c(1:58)) %>% 
   select(county, rec_area, rec_rank)
-
 ```
 
 
@@ -55,7 +58,7 @@ diversity <- read_csv("ca_profile.csv")
 div <- diversity %>% 
   select(county, div_index) %>% 
   arrange(-div_index) %>% 
-  mutate(div_rank = rank3$rank) %>% 
+  mutate(div_rank = c(1:58)) %>% 
   arrange(county)
 
 
@@ -67,17 +70,14 @@ Entertainment
 
 entertainment <- read_csv("entertainment_ca.csv")
 
-entertainment$area <- diversity$land_area_sqml
-
-rank3 <- entertainment %>% 
-  arrange(rank)
+entertainment<-merge(entertainment, area, by = "county")
 
 # entertainment ranks
 ent <- entertainment %>% 
   mutate(estab_area = est/area) %>% 
   arrange(-estab_area) %>% 
-  mutate(estab_rank = rank3$rank) %>% 
-  select(county, estab_area, estab_rank) %>% 
+  mutate(ent_rank = c(1:58)) %>% 
+  select(county, estab_area, ent_rank) %>% 
   arrange(county)
 
 
@@ -88,17 +88,27 @@ Nightlife
 ```{r}
 
 night_life <- read_csv("night_life_ca.csv")
+night_life<-merge(night_life, county_area, "county") #merging to add area. this way, we know for sure that the area corresponds to the county. 
 
 
 night_norm <- night_life %>% 
-  mutate(area = entertainment$area) %>% 
   rename(establishment = est) %>% 
   mutate(drink_area = establishment/area) %>% 
   select(county, drink_area) %>% 
   arrange(-drink_area) %>% 
-  mutate(night_rank = rank3$rank) %>% 
-  arrange(county)
+  mutate(night_rank = c(1:58)) 
 
+
+```
+
+
+Merging Rank and Values/ making percentile 
+
+```{r}
+master_rank<-master_ranks %>% 
+  select(-X1) %>% 
+  gather(category, rank, -county) %>% 
+  mutate(percentile= 1-rank/58)
 ```
 
 
