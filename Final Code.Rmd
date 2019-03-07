@@ -49,5 +49,11 @@ Tab 3:
 values <- read_csv("master_value.csv") %>%
   dplyr::select(county, div_index, rec_area, night_area, ent_area, health_rank) 
 
+write.csv(values, 'values.csv', row.names = FALSE)
+
+
+# Data frame needed for graph in tab 3
+master_ranks <- read_csv("master_ranks.csv")
+
 ```
 

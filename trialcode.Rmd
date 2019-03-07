@@ -18,7 +18,7 @@ County names vector for easier future use:
 ```{r}
 # Create a vector of names for  counties  
 
-county_names <- c("Alameda", "Alpine", "Amador", "Butte", "Calaveras", "Colusa",
+county_name_vector <- c("Alameda", "Alpine", "Amador", "Butte", "Calaveras", "Colusa",
                                      "Contra Costa", "Del Norte","El Dorado", "Fresno", "Glenn",
                                      "Humbolt", "Imperial", "Inyo", "Kern",  "Kings", "Lake", 
                                      "Lassen", "Los Angeles", "Madera", "Marin", "Mariposa", 
@@ -30,7 +30,9 @@ county_names <- c("Alameda", "Alpine", "Amador", "Butte", "Calaveras", "Colusa",
                                      "Solano", "Sonoma", "Stanislaus", "Sutter", "Tehama",
                                      "Trinity", "Tulare", "Tuolumne", "Ventura", "Yolo", "Yuba")
 
-county_names_df <- as.data.frame(county_names)
+county_names <- as.data.frame(county_names)
+
+write.csv(county_names, 'county_names.csv')
 ```
 
 California county population for the year 2018
@@ -148,7 +150,7 @@ values <- read_csv("master_value.csv") %>%
   dplyr::select(county, div_index, rec_area, night_area, ent_area, health_rank) 
 
 ## Kable table trial
-
+values <- read_csv("values.csv")
 comparison_table <- kable(values, col.names = c("County", "Attribute 2", "Diversity", "Recreation",
                                                 "Nightlife", "Entertainment", "Health Rank"),
                           align = "c", digits = 3) %>% 

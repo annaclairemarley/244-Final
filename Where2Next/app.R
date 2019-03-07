@@ -14,6 +14,10 @@ library(plotly)
 
 
 # Read in Data:
+county_names <- read_csv("county_names.csv")
+master_ranks <- read_csv("master_ranks.csv")
+values <- read_csv("values.csv")
+
 
 # Create user interface (ui)
 ui <- navbarPage(theme = shinytheme("darkly"),
@@ -63,10 +67,10 @@ ui <- navbarPage(theme = shinytheme("darkly"),
   tabPanel("County Comparisions",
            sidebarPanel(
              selectInput("county1", "Select a County",
-                         choices = county_names,
+                         choices = county_names$county_names,
                          selected = 1),
              selectInput("county2", "Select a Second County",
-                         choices = county_names,
+                         choices = county_names$county_names,
                          selected = 1)),
              "Variable Comparison", align = "left",
            mainPanel(
