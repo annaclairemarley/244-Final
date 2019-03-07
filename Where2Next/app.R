@@ -104,16 +104,17 @@ server <- function(input, output) {
               line = list(color = ~county), 
               dimensions = list(
                 list(range = c(58,1),
-                     label = 'Entertainment', values = ~ent_rank),
+                     label = 'Diversity', values = ~div_rank),
+                list(range = c(58,1),
+                     label = 'Recreation', values = ~rec_rank),
                 list(range = c(58,1),
                      constraintrange = c(5,6),
                      label = 'Night life', values = ~night_rank),
                 list(range = c(58,1),
-                     label = 'Recreation', values = ~rec_rank),
+                     label = 'Entertainment', values = ~ent_rank),
                 list(range = c(58,1),
-                     label = 'Health', values = ~health_rank),
-                list(range = c(58,1),
-                     label = 'Diversity', values = ~div_rank)
+                     label = 'Health', values = ~health_rank)
+                
               ))
   }
     
