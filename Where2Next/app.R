@@ -16,6 +16,7 @@ library(plotly)
 # Read in Data:
 county_names <- read_csv("county_names.csv")
 master_ranks <- read_csv("master_ranks.csv")
+master_tidy2 <- read_csv("master_tidy2.csv")
 values <- read_csv("values.csv")
 
 
@@ -99,31 +100,28 @@ server <- function(input, output) {
     county_outline
   })
   # Data frame for ploting:
-  observeEvent(input$county2, {
-    plot_df <- master_ranks %>% 
-      filter(county == input$county1 | county == input$county2)
-    
-    output$comparison_graph <- renderPlotly({
-      plot_ly(plot_df, type = 'parcoords',
-              line = list(color = ~county),
-              dimensions = list(
-                list(range = c(58,1),
-                     label = 'Diversity', values = ~div_rank),
-                list(range = c(58,1),
-                     label = 'Recreation', values = ~rec_rank),
-                list(range = c(58,1),
-                     constraintrange = c(5,6),
-                     label = 'Night life', values = ~night_rank),
-                list(range = c(58,1),
-                     label = 'Entertainment', values = ~ent_rank),
-                list(range = c(58,1),
-                     label = 'Health', values = ~health_rank)
-                
-              ))
-  }
+      observeEvent(input$county2, {
+        plot_df2 <- master_tidy2 %>% 
+          filter(county == input$county1 | county == input$county2)
+        
+        output$comparison_graph <- renderPlot({
+          ggplot(data = plot_df2, aes(x = rank_name, y = rank, group = county)) +
+          geom_point(aes(color = county)) +
+          geom_line(aes(color = county)) +
+            scale_color_manual(values=c('steelblue3','indianred3')) +
+            ylim(0,60) +
+            scale_y_continuous(trans = "reverse", breaks = seq(0,60, by = 10)) +
+            scale_x_discrete(expand = c(0.01,0.01)) +
+            labs(
+              x = "County Metrics",
+              y = "Rank"
+            ) +
+            theme_bw() 
+                    
+        })
     
   
-      )
+      
   })
   
   output$comparison_table <- function() {

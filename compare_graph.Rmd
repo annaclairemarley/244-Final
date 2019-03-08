@@ -270,9 +270,65 @@ ggtry <- master_tidy %>%
     y = "Rank"
   ) +
   theme_bw() 
+  
 
 
 ggtry
 
 ```
+
+Preserving code form the original app
+
+```{r}
+
+output$comparison_graph <- renderPlotly({
+      plot_ly(plot_df, type = 'parcoords',
+              line = list(color = ~county),
+              dimensions = list(
+                list(range = c(58,1),
+                     label = 'Diversity', values = ~div_rank),
+                list(range = c(58,1),
+                     label = 'Recreation', values = ~rec_rank),
+                list(range = c(58,1),
+                     constraintrange = c(5,6),
+                     label = 'Night life', values = ~night_rank),
+                list(range = c(58,1),
+                     label = 'Entertainment', values = ~ent_rank),
+                list(range = c(58,1),
+                     label = 'Health', values = ~health_rank)
+
+```
+
+
+
+```{r}
+
+
+  observeEvent(input$county2, {
+    plot_df <- master_ranks %>% 
+      filter(county == input$county1 | county == input$county2)
+    
+      output$comparison_graph <- renderPlotly({
+        plot_ly(plot_df, type = 'parcoords',
+                line = list(color = ~county),
+                dimensions = list(
+                  list(range = c(58,1),
+                       label = 'Diversity', values = ~div_rank),
+                  list(range = c(58,1),
+                       label = 'Recreation', values = ~rec_rank),
+                  list(range = c(58,1),
+                       constraintrange = c(5,6),
+                       label = 'Night life', values = ~night_rank),
+                  list(range = c(58,1),
+                       label = 'Entertainment', values = ~ent_rank),
+                  list(range = c(58,1),
+                       label = 'Health', values = ~health_rank)
+                
+                                 ))      
+    })
+
+```
+
+
+
 

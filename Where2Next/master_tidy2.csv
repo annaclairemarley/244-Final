@@ -1,0 +1,291 @@
+,county,rank,rank_name
+1,Alameda,1,diversity
+2,Alpine,36,diversity
+3,Amador,49,diversity
+4,Butte,43,diversity
+5,Calaveras,54,diversity
+6,Colusa,30,diversity
+7,Contra Costa,6,diversity
+8,Del Norte,27,diversity
+9,El Dorado,48,diversity
+10,Fresno,16,diversity
+11,Glenn,28,diversity
+12,Humboldt,45,diversity
+13,Imperial,53,diversity
+14,Inyo,32,diversity
+15,Kern,19,diversity
+16,Kings,20,diversity
+17,Lake,42,diversity
+18,Lassen,33,diversity
+19,Los Angeles,10,diversity
+20,Madera,26,diversity
+21,Marin,41,diversity
+22,Mariposa,52,diversity
+23,Mendocino,37,diversity
+24,Merced,24,diversity
+25,Modoc,47,diversity
+26,Mono,38,diversity
+27,Monterey,25,diversity
+28,Napa,23,diversity
+29,Nevada,57,diversity
+30,Orange,9,diversity
+31,Placer,44,diversity
+32,Plumas,56,diversity
+33,Riverside,14,diversity
+34,Sacramento,5,diversity
+35,San Benito,31,diversity
+36,San Bernardino,15,diversity
+37,San Diego,11,diversity
+38,San Francisco,8,diversity
+39,San Joaquin,7,diversity
+40,San Luis Obispo,39,diversity
+41,San Mateo,4,diversity
+42,Santa Barbara,22,diversity
+43,Santa Clara,3,diversity
+44,Santa Cruz,29,diversity
+45,Shasta,50,diversity
+46,Sierra,58,diversity
+47,Siskiyou,46,diversity
+48,Solano,2,diversity
+49,Sonoma,35,diversity
+50,Stanislaus,17,diversity
+51,Sutter,12,diversity
+52,Tehama,40,diversity
+53,Trinity,55,diversity
+54,Tulare,34,diversity
+55,Tuolumne,51,diversity
+56,Ventura,18,diversity
+57,Yolo,13,diversity
+58,Yuba,21,diversity
+,Alameda,5,recreation
+,Alpine,51,recreation
+,Amador,31,recreation
+,Butte,25,recreation
+,Calaveras,32,recreation
+,Colusa,44,recreation
+,Contra Costa,6,recreation
+,Del Norte,52,recreation
+,El Dorado,24,recreation
+,Fresno,28,recreation
+,Glenn,47,recreation
+,Humboldt,37,recreation
+,Imperial,46,recreation
+,Inyo,55,recreation
+,Kern,34,recreation
+,Kings,41,recreation
+,Lake,40,recreation
+,Lassen,56,recreation
+,Los Angeles,4,recreation
+,Madera,38,recreation
+,Marin,9,recreation
+,Mariposa,49,recreation
+,Mendocino,42,recreation
+,Merced,30,recreation
+,Modoc,57,recreation
+,Mono,50,recreation
+,Monterey,27,recreation
+,Napa,17,recreation
+,Nevada,18,recreation
+,Orange,2,recreation
+,Placer,15,recreation
+,Plumas,45,recreation
+,Riverside,20,recreation
+,Sacramento,8,recreation
+,San Benito,39,recreation
+,San Bernardino,33,recreation
+,San Diego,10,recreation
+,San Francisco,1,recreation
+,San Joaquin,16,recreation
+,San Luis Obispo,26,recreation
+,San Mateo,3,recreation
+,Santa Barbara,21,recreation
+,Santa Clara,7,recreation
+,Santa Cruz,11,recreation
+,Shasta,36,recreation
+,Sierra,58,recreation
+,Siskiyou,53,recreation
+,Solano,12,recreation
+,Sonoma,14,recreation
+,Stanislaus,19,recreation
+,Sutter,22,recreation
+,Tehama,48,recreation
+,Trinity,54,recreation
+,Tulare,43,recreation
+,Tuolumne,35,recreation
+,Ventura,13,recreation
+,Yolo,23,recreation
+,Yuba,29,recreation
+,Alameda,5,health
+,Alpine,1,health
+,Amador,22,health
+,Butte,32,health
+,Calaveras,16,health
+,Colusa,23,health
+,Contra Costa,4,health
+,Del Norte,34,health
+,El Dorado,10,health
+,Fresno,48,health
+,Glenn,38,health
+,Humboldt,45,health
+,Imperial,25,health
+,Inyo,30,health
+,Kern,49,health
+,Kings,28,health
+,Lake,54,health
+,Lassen,31,health
+,Los Angeles,17,health
+,Madera,36,health
+,Marin,2,health
+,Mariposa,29,health
+,Mendocino,40,health
+,Merced,41,health
+,Modoc,50,health
+,Mono,8,health
+,Monterey,15,health
+,Napa,46,health
+,Nevada,7,health
+,Orange,55,health
+,Placer,35,health
+,Plumas,52,health
+,Riverside,19,health
+,Sacramento,26,health
+,San Benito,12,health
+,San Bernardino,37,health
+,San Diego,3,health
+,San Francisco,57,health
+,San Joaquin,42,health
+,San Luis Obispo,6,health
+,San Mateo,13,health
+,Santa Barbara,11,health
+,Santa Clara,24,health
+,Santa Cruz,9,health
+,Shasta,43,health
+,Sierra,21,health
+,Siskiyou,53,health
+,Solano,20,health
+,Sonoma,56,health
+,Stanislaus,33,health
+,Sutter,27,health
+,Tehama,39,health
+,Trinity,51,health
+,Tulare,47,health
+,Tuolumne,18,health
+,Ventura,58,health
+,Yolo,14,health
+,Yuba,44,health
+,Alameda,3,nightlife
+,Alpine,57,nightlife
+,Amador,32,nightlife
+,Butte,22,nightlife
+,Calaveras,39,nightlife
+,Colusa,44,nightlife
+,Contra Costa,8,nightlife
+,Del Norte,54,nightlife
+,El Dorado,26,nightlife
+,Fresno,24,nightlife
+,Glenn,45,nightlife
+,Humboldt,27,nightlife
+,Imperial,43,nightlife
+,Inyo,56,nightlife
+,Kern,33,nightlife
+,Kings,35,nightlife
+,Lake,28,nightlife
+,Lassen,52,nightlife
+,Los Angeles,4,nightlife
+,Madera,41,nightlife
+,Marin,11,nightlife
+,Mariposa,51,nightlife
+,Mendocino,34,nightlife
+,Merced,31,nightlife
+,Modoc,58,nightlife
+,Mono,55,nightlife
+,Monterey,30,nightlife
+,Napa,20,nightlife
+,Nevada,21,nightlife
+,Orange,2,nightlife
+,Placer,18,nightlife
+,Plumas,40,nightlife
+,Riverside,23,nightlife
+,Sacramento,6,nightlife
+,San Benito,49,nightlife
+,San Bernardino,36,nightlife
+,San Diego,9,nightlife
+,San Francisco,1,nightlife
+,San Joaquin,13,nightlife
+,San Luis Obispo,25,nightlife
+,San Mateo,5,nightlife
+,Santa Barbara,17,nightlife
+,Santa Clara,7,nightlife
+,Santa Cruz,10,nightlife
+,Shasta,38,nightlife
+,Sierra,53,nightlife
+,Siskiyou,50,nightlife
+,Solano,12,nightlife
+,Sonoma,14,nightlife
+,Stanislaus,16,nightlife
+,Sutter,37,nightlife
+,Tehama,47,nightlife
+,Trinity,46,nightlife
+,Tulare,48,nightlife
+,Tuolumne,42,nightlife
+,Ventura,15,nightlife
+,Yolo,19,nightlife
+,Yuba,29,nightlife
+,Alameda,4,entertainment
+,Alpine,46,entertainment
+,Amador,28,entertainment
+,Butte,26,entertainment
+,Calaveras,58,entertainment
+,Colusa,52,entertainment
+,Contra Costa,7,entertainment
+,Del Norte,48,entertainment
+,El Dorado,23,entertainment
+,Fresno,29,entertainment
+,Glenn,44,entertainment
+,Humboldt,36,entertainment
+,Imperial,50,entertainment
+,Inyo,55,entertainment
+,Kern,33,entertainment
+,Kings,39,entertainment
+,Lake,43,entertainment
+,Lassen,51,entertainment
+,Los Angeles,2,entertainment
+,Madera,31,entertainment
+,Marin,5,entertainment
+,Mariposa,45,entertainment
+,Mendocino,32,entertainment
+,Merced,38,entertainment
+,Modoc,57,entertainment
+,Mono,49,entertainment
+,Monterey,21,entertainment
+,Napa,18,entertainment
+,Nevada,19,entertainment
+,Orange,3,entertainment
+,Placer,17,entertainment
+,Plumas,56,entertainment
+,Riverside,16,entertainment
+,Sacramento,12,entertainment
+,San Benito,34,entertainment
+,San Bernardino,30,entertainment
+,San Diego,10,entertainment
+,San Francisco,1,entertainment
+,San Joaquin,20,entertainment
+,San Luis Obispo,24,entertainment
+,San Mateo,6,entertainment
+,Santa Barbara,14,entertainment
+,Santa Clara,9,entertainment
+,Santa Cruz,11,entertainment
+,Shasta,37,entertainment
+,Sierra,47,entertainment
+,Siskiyou,53,entertainment
+,Solano,15,entertainment
+,Sonoma,13,entertainment
+,Stanislaus,25,entertainment
+,Sutter,40,entertainment
+,Tehama,42,entertainment
+,Trinity,54,entertainment
+,Tulare,41,entertainment
+,Tuolumne,35,entertainment
+,Ventura,8,entertainment
+,Yolo,22,entertainment
+,Yuba,27,entertainment
