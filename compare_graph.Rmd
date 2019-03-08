@@ -196,13 +196,17 @@ library(RColorBrewer)
 library(viridis)
 
 
-just_2 <- master_ranks %>% 
-  filter(county == "Alameda" | county == "Alpine")
+master_ranks2 <- read_csv("master_ranks2.csv")
+
+just_2 <- master_ranks2 %>% 
+  filter(county == "Alameda" | county == "Alpine") %>% 
+ dplyr::select(-X1)
 
 
 paralell_graph <- just_2 %>%
   plot_ly(type = 'parcoords',
-          line = list(color = ~county), 
+          line = list(color = ~county),
+          text = ~paste('County', county),
           dimensions = list(
             list(range = c(58,1),
                  label = 'Entertainment', values = ~ent_rank),
@@ -222,5 +226,31 @@ paralell_graph
 
 ```
 
+
+
+```{r}
+
+options(viewer=NULL) 
+
+df <- read.csv("https://raw.githubusercontent.com/bcdunbar/datasets/master/iris.csv")   
+p <- df %>%
+  plot_ly(type = 'parcoords',
+          line = list(color = ~species_id,
+                      colorscale = list(c(0,'red'),c(0.5,'green'),c(1,'blue'))),
+          dimensions = list(
+            list(range = c(2,4.5),
+                 label = 'Sepal Width', values = ~sepal_width),
+            list(range = c(4,8),
+                 constraintrange = c(5,6),
+                 label = 'Sepal Length', values = ~sepal_length),
+            list(range = c(0,2.5),
+                 label = 'Petal Width', values = ~petal_width),
+            list(range = c(1,7),
+                 label = 'Petal Length', values = ~petal_length)
+          )
+   )
+
+p
+```
 
 
