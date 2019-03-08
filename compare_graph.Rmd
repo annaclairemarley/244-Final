@@ -168,7 +168,7 @@ Bar graph percentiles
 ```{r}
 
 master_tidy <- read_csv("master_tidy.csv") %>% 
-  select(county, rank, rank_name)
+  dplyr::select(-X1)  
 
 compare_graph2 <- master_percentile %>% 
   filter( county == "San Francisco" | county == "Santa Clara") %>% 
@@ -227,7 +227,6 @@ paralell_graph
 ```
 
 
-
 ```{r}
 
 options(viewer=NULL) 
@@ -253,4 +252,27 @@ p <- df %>%
 p
 ```
 
+Trying with ggplot
+
+```{r}
+
+ggtry <- master_tidy %>% 
+  filter(county == "San Francisco" | county == "Santa Barbara") %>% 
+  ggplot(aes(x = rank_name, y = rank, group = county)) +
+  geom_point(aes(color = county)) +
+  geom_line(aes(color = county)) +
+  scale_color_manual(values=c('steelblue3','indianred3')) +
+  ylim(0,60) +
+  scale_y_continuous(trans = "reverse", breaks = seq(0,60, by = 10)) +
+  scale_x_discrete(expand = c(0.01,0.01)) +
+  labs(
+    x = "County Metrics",
+    y = "Rank"
+  ) +
+  theme_bw() 
+
+
+ggtry
+
+```
 
