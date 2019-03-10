@@ -114,7 +114,8 @@ server <- function(input, output) {
       scale_color_manual(values=c('steelblue3','indianred3')) +
       ylim(0,60) +
       scale_y_continuous(trans = "reverse", breaks = seq(0,60, by = 10)) +
-      scale_x_discrete(expand = c(0.01,0.01), breaks = c(diversity, recreation, nightlife, entertainment, health)) +
+      scale_x_discrete(expand = c(0.01,0.01), breaks = c("diversity", "recreation", "nightlife", "entertainment",
+                                                         "health")) +
       labs(
         x = "County Metrics",
         y = "Rank"
