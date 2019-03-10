@@ -108,6 +108,7 @@ server <- function(input, output) {
   output$comparison_graph <- renderPlot({
     master_tidy2 %>% 
       filter(county == input$county1 | county == input$county2) %>% 
+      dplyr::select(diversity, recreation, nightlife, entertainment, health) %>% 
       ggplot(aes(x = rank_name, y = rank, group = county)) +
       geom_point(aes(color = county)) +
       geom_line(aes(color = county)) +
