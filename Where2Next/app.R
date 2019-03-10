@@ -108,14 +108,13 @@ server <- function(input, output) {
   output$comparison_graph <- renderPlot({
     master_tidy2 %>% 
       filter(county == input$county1 | county == input$county2) %>% 
-      dplyr::select(diversity, recreation, nightlife, entertainment, health) %>% 
       ggplot(aes(x = rank_name, y = rank, group = county)) +
       geom_point(aes(color = county)) +
       geom_line(aes(color = county)) +
       scale_color_manual(values=c('steelblue3','indianred3')) +
       ylim(0,60) +
       scale_y_continuous(trans = "reverse", breaks = seq(0,60, by = 10)) +
-      scale_x_discrete(expand = c(0.01,0.01)) +
+      scale_x_discrete(expand = c(0.01,0.01), breaks = c(diversity, recreation, nightlife, entertainment, health)) +
       labs(
         x = "County Metrics",
         y = "Rank"
