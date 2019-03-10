@@ -43,11 +43,27 @@ Tab 2:
 Tab 3:
 
 ```{r}
+library(MASS)
 
-# Create values data frame to feed into the Kable table for Tab 3
+# Create values data frame with CA average to feed into the table for Tab 3
+div_avg <- mean(values_test$div_index)
+rec_avg <- mean(values_test$rec_area)
+night_avg <- mean(values_test$night_area)
+ent_avg <- mean(values_test$ent_area)
+
+
+new_row <- data.frame(county = 'CA Average', 
+                      div_index = 0.516, 
+                      rec_area = 0.352,
+                      night_area = 0.175,
+                      ent_area = 0.230,
+                      health_rank = 'NA')
+
 
 values <- read_csv("master_value.csv") %>%
   dplyr::select(county, div_index, rec_area, night_area, ent_area, health_rank) 
+
+values <- rbind(values,new_row)
 
 write.csv(values, 'values.csv', row.names = FALSE)
 

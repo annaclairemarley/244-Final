@@ -159,6 +159,69 @@ comparison_table <- kable(values, col.names = c("County", "Attribute 2", "Divers
   add_header_above(c(" " = 2, "Number of Establishments per Area" = 4, " " = 1)) 
 
 comparison_table
+
+# Find the mean of all indexes for the CA average:
+
+div_avg <- mean(values_test$div_index)
+rec_avg <- mean(values_test$rec_area)
+night_avg <- mean(values_test$night_area)
+ent_avg <- mean(values_test$ent_area)
+
+# Add a row the dataframe of the all CA averages:
+add_row(values_test, 
+        county = "CA Average", 
+        div_index = 0.516, 
+        rec_area = 0.352, 
+        night_area = 0.175, 
+        ent_area = 0.230)
+
+# That was supposed to work but didn't...
+
+library(MASS)
+new_row <- data.frame(county = 'CA Average', 
+                      div_index = 0.516, 
+                      rec_area = 0.352,
+                      night_area = 0.175,
+                      ent_area = 0.230,
+                      health_rank = 'NA')
+
+values_test <- rbind(values_test,new_row)
+
+# Try GT table 
+
+library(gt)
+values_test <- read_csv("values2.csv")
+
+values_test %>% 
+  dplyr::filter(county == "Santa Barbara" | county == "Amador" | county == "CA Average") %>% 
+  gt() %>% 
+  tab_header(
+    title = md("**County Metrics Comparison**")
+  ) %>% 
+  cols_label(county = md("**County**"),
+             div_index = md("**Diversity**"),
+             rec_area = md("**Recreation**"),
+             night_area = md("**Nightlife**"),
+             ent_area = md("**Entertainment**"),
+             health_rank = md("**Health Rank**")) %>% 
+  tab_spanner(label = md("Number of Establishments per Area"), 
+              columns = vars(div_index, rec_area, night_area, ent_area)) %>% 
+  fmt_number(columns = vars(div_index, rec_area, night_area, ent_area),
+    decimals = 3) %>% 
+  tab_style(
+    style = cells_styles(
+      text_style = "italic",
+      text_color = "midnightblue"),
+    locations = list(
+      cells_data(columns = c(1), rows = c(3)),
+      cells_data(columns = c(2), rows = c(3)),
+      cells_data(columns = c(3), rows = c(3)),
+      cells_data(columns = c(4), rows = c(3)),
+      cells_data(columns = c(5), rows = c(3)),
+      cells_data(columns = c(6), rows = c(3))
+    )
+  )
+
 ```
 
 Graph for Tab 3
