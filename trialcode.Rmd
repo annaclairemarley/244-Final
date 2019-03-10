@@ -262,5 +262,9 @@ master_ranks %>%
               )
       )
 
+
+ observeEvent(input$county2, {
+        plot_df2 <- master_tidy2 %>% 
+          filter(county == input$county1 | county == input$county2)
 ```
 

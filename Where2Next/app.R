@@ -70,14 +70,17 @@ ui <- navbarPage(theme = shinytheme("darkly"),
            sidebarPanel(
              selectInput("county1", "Select a County",
                          choices = county_names$county_names,
-                         selected = 1),
+                         selected = "Alameda"),
              selectInput("county2", "Select a Second County",
                          choices = county_names$county_names,
-                         selected = 1)),
-             "Variable Comparison", align = "left",
+                         selected = "Amador"),
+             "Variable Comparison", align = "left"),
            mainPanel(
              h1("County Metric Rankings"),
-             plotlyOutput("comparison_graph"),
+             plotOutput("comparison_graph"),
+             br(),
+             br(),
+             h1("County Metric Comparison"),
              gt_output("comparison_table")
            ))
            
@@ -101,36 +104,28 @@ server <- function(input, output) {
     county_outline
   })
   # Data frame for ploting:
-      observeEvent(input$county2, {
-        plot_df2 <- master_tidy2 %>% 
-          filter(county == input$county1 | county == input$county2)
-        
-        output$comparison_graph <- renderPlot({
-          ggplot(data = plot_df2, aes(x = rank_name, y = rank, group = county)) +
-          geom_point(aes(color = county)) +
-          geom_line(aes(color = county)) +
-            scale_color_manual(values=c('steelblue3','indianred3')) +
-            ylim(0,60) +
-            scale_y_continuous(trans = "reverse", breaks = seq(0,60, by = 10)) +
-            scale_x_discrete(expand = c(0.01,0.01)) +
-            labs(
-              x = "County Metrics",
-              y = "Rank"
-            ) +
-            theme_bw() 
-                    
-        })
-    
-  
-      
-  })
+ 
+  output$comparison_graph <- renderPlot({
+    master_tidy2 %>% 
+      filter(county == input$county1 | county == input$county2) %>% 
+      ggplot(aes(x = rank_name, y = rank, group = county)) +
+      geom_point(aes(color = county)) +
+      geom_line(aes(color = county)) +
+      scale_color_manual(values=c('steelblue3','indianred3')) +
+      ylim(0,60) +
+      scale_y_continuous(trans = "reverse", breaks = seq(0,60, by = 10)) +
+      scale_x_discrete(expand = c(0.01,0.01)) +
+      labs(
+        x = "County Metrics",
+        y = "Rank"
+        ) +
+      theme_bw() 
+    })
   
   output$comparison_table <- render_gt({
     values %>% 
       filter(county == input$county1 | county == input$county2 | county == "CA Average") %>% 
       gt() %>% 
-      tab_header(
-        title = html("County Metrics Comparison")) %>% 
       cols_label(county = md("**County**"),
                  div_index = md("**Diversity**"),
                  rec_area = md("**Recreation**"),
