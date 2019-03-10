@@ -222,6 +222,20 @@ values_test %>%
     )
   )
 
+
+
+#### Shiny Code from Kable Table in case GT doesn't work:
+function() {
+    req(input$county1, input$county2)
+    values %>% 
+      filter(county == input$county1 | county == input$county2) %>% 
+      knitr::kable("html", col.names = c("County", "Diversity", "Recreation",
+                                         "Nightlife", "Entertainment", "Health Rank"),
+                   align = "c", digits = 3) %>% 
+      kable_styling(bootstrap_options = c("striped", "hovered", "boardered"), full_width = F) %>% 
+      column_spec(1, bold = T) %>% 
+      add_header_above(c(" " = 1, "Number of Establishments per Area" = 4, " " = 1))
+  }
 ```
 
 Graph for Tab 3

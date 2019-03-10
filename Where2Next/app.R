@@ -11,6 +11,7 @@ library(shinythemes)
 library(tidyverse)
 library(RColorBrewer)
 library(plotly)
+library(gt)
 
 
 # Read in Data:
@@ -77,7 +78,7 @@ ui <- navbarPage(theme = shinytheme("darkly"),
            mainPanel(
              h1("County Metric Rankings"),
              plotlyOutput("comparison_graph"),
-             tableOutput("comparison_table")
+             gt_output("comparison_table")
            ))
            
 )
@@ -124,17 +125,36 @@ server <- function(input, output) {
       
   })
   
-  output$comparison_table <- function() {
-    req(input$county1, input$county2)
+  output$comparison_table <- render_gt({
     values %>% 
-      filter(county == input$county1 | county == input$county2) %>% 
-      knitr::kable("html", col.names = c("County", "Diversity", "Recreation",
-                                         "Nightlife", "Entertainment", "Health Rank"),
-                   align = "c", digits = 3) %>% 
-      kable_styling(bootstrap_options = c("striped", "hovered", "boardered"), full_width = F) %>% 
-      column_spec(1, bold = T) %>% 
-      add_header_above(c(" " = 1, "Number of Establishments per Area" = 4, " " = 1))
-  }
+      filter(county == input$county1 | county == input$county2 | county == "CA Average") %>% 
+      gt() %>% 
+      tab_header(
+        title = html("County Metrics Comparison")) %>% 
+      cols_label(county = md("**County**"),
+                 div_index = md("**Diversity**"),
+                 rec_area = md("**Recreation**"),
+                 night_area = md("**Nightlife**"),
+                 ent_area = md("**Entertainment**"),
+                 health_rank = md("**Health Rank**")) %>% 
+      tab_spanner(label = md("Number of Establishments per Area"), 
+                  columns = vars(div_index, rec_area, night_area, ent_area)) %>% 
+      fmt_number(columns = vars(div_index, rec_area, night_area, ent_area),
+                 decimals = 3) %>% 
+      tab_style(
+        style = cells_styles(
+          text_style = "italic",
+          text_color = "midnightblue"),
+        locations = list(
+          cells_data(columns = c(1), rows = c(3)),
+          cells_data(columns = c(2), rows = c(3)),
+          cells_data(columns = c(3), rows = c(3)),
+          cells_data(columns = c(4), rows = c(3)),
+          cells_data(columns = c(5), rows = c(3)),
+          cells_data(columns = c(6), rows = c(3))
+        )
+      )
+  })
 }
 
 # Run the application 
