@@ -18,6 +18,7 @@ library(gt)
 county_names <- read_csv("county_names.csv")
 master_ranks <- read_csv("master_ranks.csv")
 master_tidy2 <- read_csv("master_tidy2.csv")
+master_tidy2$rank_name <- factor(master_tidy2$rank_name, c("diversity", "recreation", "nightlife", "entertainment", "health"))
 values <- read_csv("values.csv")
 
 
