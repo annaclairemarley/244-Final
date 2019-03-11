@@ -79,7 +79,20 @@ ui <- navbarPage(theme = shinytheme("darkly"),
                              selectInput("county2", "Select a Second County",
                                          choices = county_names$county_names,
                                          selected = "Amador"),
-                             "Variable Comparison"
+                             h3("Variable Comparison"),
+                             h5(strong("Health")), 
+                             ("Rank calculated from socioeconomic factors, behaviors, access to healthcare and physical environment."),
+                             br(),
+                             h5(strong("Recreation")), 
+                             ("Includes museums, zoos, amusement parks, and nature parks."),
+                             br(),
+                             h5(strong("Nightlife")),
+                             ("Includes bars, clubs, and liquor stores."),
+                             br(),
+                             h5(strong("Entertainment")),
+                             "Includes performing arts companies, theaters, and sports venues.",
+                             br(),
+                             h5(strong("Diversity"))
                       ),
                       column(8,
                              h1("County Metric Rankings"),
@@ -99,15 +112,7 @@ server <- function(input, output) {
   library(dplyr)
   library(kableExtra)
   library(plotly)
-  output$distPlot <- renderPlot({
-    # generate bins based on input$bins from ui.R
-    x    <- faithful[, 2] 
-    bins <- seq(min(x), max(x), length.out = input$bins + 1)
-    
-    # draw the histogram with the specified number of bins
-    hist(x, breaks = bins, col = 'darkgray', border = 'white')
-  })
-  
+
   output$ca_map <- renderPlot({
     county_outline
   })
