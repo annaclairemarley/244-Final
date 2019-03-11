@@ -38,12 +38,11 @@ ui <- navbarPage(theme = shinytheme("darkly"),
            img(src = "cityscape1.jpg",
                width = 500, height = 400), 
            align = "center",
-           hr(h5(strong("Health")),"Rank determined as a weighted sum of the following factors: 40% socioeconomic (education, employment, income, family and social support, and community safety), 30% health behaviors (tobacco use, diet and exercise, alcohol and drug use, and sexual activity), 20% clinical care (access to care and quality of care), and 10% physical environment (air and water quality, housing, and transit)."),
-           
+           hr(h5(strong("Health"), align = "left"),
+              p("Rank determined as a weighted sum of the following factors: 40% socioeconomic (education, employment, income, family and social support, and community safety), 30% health behaviors (tobacco use, diet and exercise, alcohol and drug use, and sexual activity), 20% clinical care (access to care and quality of care), and 10% physical environment (air and water quality, housing, and transit).", align = "left")),
            br(),
-           br(),
            
-           em("Data Source:"), a(href = "http://www.countyhealthrankings.org/rankings/data/CA", "California Health Rankings and Roadmaps."), "(2018). 2018 California Rankings Data [Data file and Summary Report]. Retrieved from ",
+           p(em("Data Source:"), a(href = "http://www.countyhealthrankings.org/rankings/data/CA", "California Health Rankings and Roadmaps."), "(2018). 2018 California Rankings Data [Data file and Summary Report].", align = "left"),
            
            hr(h5(strong("Recreation")),"Number of recreation establishments per county normalized by the county’s entire area. This includes museums, zoos, amusement parks, and nature parks."),
            
@@ -59,11 +58,14 @@ ui <- navbarPage(theme = shinytheme("darkly"),
            
            em("Data Source:"), a(href = "https://www.census.gov/data/datasets/2016/econ/cbp/2016-cbp.html", "United States Census Bureau"), "2016. County Business Patterns 2016 [Compete County data file].",
            
-           hr(h5(strong("Entertainment")),"Number of entertainment establishments per county normalized by the county’s entire area. This includes performing arts companies, theaters, and sports venues."),
-  
+           hr(h5(strong("Entertainment")), "Number of entertainment establishments per county normalized by the county’s entire area. This includes performing arts companies, theaters, and sports venues."),
+
   br(),
   br(),
+
+  em("Data Source:"), a(href = "https://www.census.gov/data/datasets/2016/econ/cbp/2016-cbp.html", "United States Census Bureau"), "2016. County Business Patterns 2016 [Compete County data file].",
   
+  hr(h5(strong("County Shapefiles"))),
   em("Data Source:"), a(href = "https://www.census.gov/data/datasets/2016/econ/cbp/2016-cbp.html", "United States Census Bureau"), "2016. County Business Patterns 2016 [Compete County data file]."
   ),
   
