@@ -68,24 +68,31 @@ ui <- navbarPage(theme = shinytheme("darkly"),
   
   # Tab 3 - Graph and table comparing selected counties
   tabPanel("County Comparisions",
-           sidebarPanel(
-             selectInput("county1", "Select a County",
-                         choices = county_names$county_names,
-                         selected = "Alameda"),
-             selectInput("county2", "Select a Second County",
-                         choices = county_names$county_names,
-                         selected = "Amador"),
-             p("Variable Comparison")),
-           mainPanel(
-             h1("County Metric Rankings"),
-             plotOutput("comparison_graph"),
-             br(),
-             br(),
-             h1("County Metric Comparison"),
-             gt_output("comparison_table")
-           ))
-           
-)
+           fixedRow(
+             column(12,
+                    "",
+                    fixedRow(
+                      column(4,
+                             selectInput("county1", "Select a County",
+                                         choices = county_names$county_names,
+                                         selected = "Alameda"),
+                             selectInput("county2", "Select a Second County",
+                                         choices = county_names$county_names,
+                                         selected = "Amador"),
+                             "Variable Comparison"
+                      ),
+                      column(8,
+                             h1("County Metric Rankings"),
+                             plotOutput("comparison_graph"),
+                             br(),
+                             br(),
+                             h1("County Metric Comparison"),
+                             gt_output("comparison_table")
+                      )
+                    )
+             )
+           )))
+
 
 # Define server logic required to draw a histogram
 server <- function(input, output) {
