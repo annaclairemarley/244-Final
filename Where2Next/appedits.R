@@ -11,7 +11,9 @@ library(shinythemes)
 library(tidyverse)
 library(RColorBrewer)
 library(plotly)
+library(sf)
 library(gt)
+library(leaflet)
 
 
 # Read in Data:
@@ -74,27 +76,27 @@ p("Number of nightlife establishments per county normalized by the county’s en
            sidebarPanel(
              
              #Mountains or Beach
-             radioButtons("geo", label = h3("Beach or Slopes"),
-                          choices = list("Coast" = "coast", "Mountains" = "mountains", "Don't Care" = "na"), 
+             radioButtons("geo", label = h3("Coast or Mountains?"),
+                          choices = list("Coast" = "coast", "Mountains" = "mountain", "Don't Care" = "na"), 
                           selected = "na"),
              
              #Urban or Rural
-             radioButtons("metro", label = h3("Big City or Small Town"),
-                          choices = list("City" = "city", "Rural" = "rural", "Don't Care" = "na"), 
+             radioButtons("metro", label = h3("Big City or Small Town?"),
+                          choices = list("Big City" = "city", "Small Town" = "rural", "Don't Care" = "na"), 
                           selected = "na"),
              
              #Number of Bedrooms
-             checkboxGroupInput("bedrm", label = h3("How Many Bed Rooms?"), 
+             checkboxGroupInput("bedrm", label = h4("How Many Bed Rooms?"), 
                                 choices = list("Studio" = "studio", "One Bed Room" = "one_bed", "Two Bed Room" = "two_bed", "Three Bed Room" = "three_bed"),
                                 selected = "studio"),
              
              #Max Rent Budget
-             sliderInput("rent", label = h3("Max Rent Budget"), min = 0, 
+             sliderInput("rent", label = h3("$Max Rent Budget$"), min = 0, 
                          max = 4000, value = 1000)
            ),
            
            mainPanel(
-             leafletOutput("map")
+             leafletOutput("map", height = 700)
            )
   ),
            
