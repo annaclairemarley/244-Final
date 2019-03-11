@@ -41,26 +41,31 @@ ui <- navbarPage(theme = shinytheme("darkly"),
            hr(h5(strong("Health")),"Rank determined as a weighted sum of the following factors: 40% socioeconomic (education, employment, income, family and social support, and community safety), 30% health behaviors (tobacco use, diet and exercise, alcohol and drug use, and sexual activity), 20% clinical care (access to care and quality of care), and 10% physical environment (air and water quality, housing, and transit)."),
            
            br(),
+           br(),
            
-           "Data Source: California Health Rankings and Roadmaps. (2018). 2018 California Rankings Data [Data file and Summary Report]. Retrieved from http://www.countyhealthrankings.org/rankings/data/CA.",
+           em("Data Source"),": California Health Rankings and Roadmaps. (2018). 2018 California Rankings Data [Data file and Summary Report]. Retrieved from http://www.countyhealthrankings.org/rankings/data/CA.",
            
            hr(h5(strong("Recreation")),"Number of recreation establishments per county normalized by the county’s entire area. This includes museums, zoos, amusement parks, and nature parks."),
            
            br(),
+           br(),
           
-            "Data Source: United States Census Bureau. 2016. County Business Patterns 2016 [Compete County data file]. Retrieved from https://www.census.gov/data/datasets/2016/econ/cbp/2016-cbp.html.",
+           em("Data Source"),": United States Census Bureau. 2016. County Business Patterns 2016 [Compete County data file]. Retrieved from https://www.census.gov/data/datasets/2016/econ/cbp/2016-cbp.html.",
            
            hr(h5(strong("Nightlife")),"Number of nightlife establishments per county normalized by the county’s entire area. This includes bars, clubs, and liquor stores.
 "),
            br(),
+           br(),
            
-           "Data Source: United States Census Bureau. 2016. County Business Patterns 2016 [Compete County data file]. Retrieved from https://www.census.gov/data/datasets/2016/econ/cbp/2016-cbp.html.",
+           em("Data Source"),": United States Census Bureau. 2016. County Business Patterns 2016 [Compete County data file]. Retrieved from https://www.census.gov/data/datasets/2016/econ/cbp/2016-cbp.html.",
            
-           hr(h5(strong("Entertainment")),"Number of entertainment establishments per county normalized by the county’s entire area. This includes performing arts companies, theaters, and sports venues.")),
+           hr(h5(strong("Entertainment")),"Number of entertainment establishments per county normalized by the county’s entire area. This includes performing arts companies, theaters, and sports venues."),
   
   br(),
+  br(),
   
-  "Data Source: United States Census Bureau. 2016. County Business Patterns 2016 [Compete County data file]. Retrieved from https://www.census.gov/data/datasets/2016/econ/cbp/2016-cbp.html."
+  em("Data Source:"), a(href = "https://www.census.gov/data/datasets/2016/econ/cbp/2016-cbp.html", "United States Census Bureau"), "2016. County Business Patterns 2016 [Compete County data file]."
+  ),
   
   # Tab 2 - Counties Results map based on selected inputs 
   tabPanel("Results Map",
