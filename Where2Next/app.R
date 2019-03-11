@@ -31,7 +31,8 @@ ui <- navbarPage(theme = shinytheme("darkly"),
   # 3 panels all with separate inputs and outputs
   # Tab 1 - Summary 
   tabPanel("Summary",
-           h1("Data Summary", align = "center"),
+           h1("Welcome to Where2Next", align = "center"),
+           "We help you plan where in California you want to live based off factors that are important to you. Simply choose the attributes you want and see which counties support these on a California map. If you want to compare the metrics from two different counties, you can use our graph comparison feature. See how the two counties compare in their rankings and actual metrics.",
            img(src = "cityscape1.jpg",
                width = 500, height = 400), 
            align = "center",
