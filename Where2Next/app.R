@@ -66,7 +66,13 @@ ui <- navbarPage(theme = shinytheme("darkly"),
   em("Data Source:"), a(href = "https://www.census.gov/data/datasets/2016/econ/cbp/2016-cbp.html", "United States Census Bureau"), "2016. County Business Patterns 2016 [Compete County data file].",
   
   hr(h5(strong("County Shapefiles"))),
-  em("Data Source:"), a(href = "https://www.census.gov/data/datasets/2016/econ/cbp/2016-cbp.html", "United States Census Bureau"), "2016. County Business Patterns 2016 [Compete County data file]."
+  
+  em("Data Source:"), a(href = "https://www.census.gov/data/datasets/2016/econ/cbp/2016-cbp.html", "United States Census Bureau"), "2016. County Business Patterns 2016 [Compete County data file].",
+
+  em("Data Source:"), a(href = "https://www.census.gov/data/datasets/2016/econ/cbp/2016-cbp.html", "United States Census Bureau"), "2016. County Business Patterns 2016 [Compete County data file].",
+  
+  hr(h5(strong("County Shapefiles")), em("Data Source:"), a(href = "https://data.ca.gov/dataset/ca-geographic-boundaries", "California Open Data Portal."), "(2017). CA Geographic Boundaries [Shapefile].")
+
   ),
   
   # Tab 2 - Counties Results map based on selected inputs 
