@@ -25,12 +25,12 @@ county_area<-ca_profile %>%
 Health:
 
 ```{r}
-health <- read_csv("health_rank_ca.csv")
+health <- read_csv("health_new.csv")
 
 # health ranks
-healh <- health %>% 
-  select(county, rank) %>% 
-  rename(health_rank = rank)
+# healh <- health %>% 
+#  select(county, rank) %>% 
+ # rename(health_rank = rank)
 ```
 
 Recreation:
@@ -123,11 +123,11 @@ master <- ent %>%
   mutate(div_rank = div$div_rank) %>% 
   mutate(rec_area = rec$rec_area) %>% 
   mutate(rec_rank = rec$rec_rank) %>% 
-  mutate(health_rank = heal$health_rank) %>% 
+  mutate(health_rank = health$health_rank) %>% 
   mutate(night_rank = night_norm$night_rank) %>% 
   mutate(night_area = night_norm$drink_area) %>% 
   mutate(ent_area = ent$estab_area) %>% 
-  mutate(ent_rank = ent$estab_rank)
+  mutate(ent_rank = ent$ent_rank)
 
 master_ranks <- master %>% 
   select(county, div_rank, rec_rank, health_rank, night_rank, ent_rank) 
