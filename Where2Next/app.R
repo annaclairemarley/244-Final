@@ -38,8 +38,7 @@ ui <- navbarPage(theme = shinytheme("darkly"),
            img(src = "cityscape1.jpg",
                width = 500, height = 400), 
            align = "center",
-           hr("Health: Rank determined as a weighted sum of the following factors: 40% socioeconomic (education, employment, income, family and social support, and community safety), 30% health behaviors (tobacco use, diet and exercise, alcohol and drug use, and sexual activity), 20% clinical care (access to care and quality of care), and 10% physical environment (air and water quality, housing, and transit).
-"),
+           hr(h5(strong("Health")),"Rank determined as a weighted sum of the following factors: 40% socioeconomic (education, employment, income, family and social support, and community safety), 30% health behaviors (tobacco use, diet and exercise, alcohol and drug use, and sexual activity), 20% clinical care (access to care and quality of care), and 10% physical environment (air and water quality, housing, and transit)."),
            hr("Recreation: Number of recreation establishments per county normalized by the county’s entire area. This includes museums, zoos, amusement parks, and nature parks."),
            hr("Nightlife: Number of nightlife establishments per county normalized by the county’s entire area. This includes bars, clubs, and liquor stores.
 "),
