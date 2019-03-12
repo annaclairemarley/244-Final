@@ -1,62 +1,62 @@
 ,county,rank,rank_name
 1,Alameda,1,diversity
-2,Alpine,36,diversity
-3,Amador,49,diversity
-4,Butte,43,diversity
-5,Calaveras,54,diversity
-6,Colusa,30,diversity
-7,Contra Costa,6,diversity
-8,Del Norte,27,diversity
-9,El Dorado,48,diversity
-10,Fresno,16,diversity
-11,Glenn,28,diversity
-12,Humboldt,45,diversity
-13,Imperial,53,diversity
-14,Inyo,32,diversity
-15,Kern,19,diversity
-16,Kings,20,diversity
-17,Lake,42,diversity
-18,Lassen,33,diversity
-19,Los Angeles,10,diversity
-20,Madera,26,diversity
-21,Marin,41,diversity
-22,Mariposa,52,diversity
-23,Mendocino,37,diversity
-24,Merced,24,diversity
-25,Modoc,47,diversity
-26,Mono,38,diversity
-27,Monterey,25,diversity
-28,Napa,23,diversity
+2,Alpine,43,diversity
+3,Amador,47,diversity
+4,Butte,39,diversity
+5,Calaveras,55,diversity
+6,Colusa,35,diversity
+7,Contra Costa,5,diversity
+8,Del Norte,19,diversity
+9,El Dorado,49,diversity
+10,Fresno,15,diversity
+11,Glenn,31,diversity
+12,Humboldt,41,diversity
+13,Imperial,52,diversity
+14,Inyo,29,diversity
+15,Kern,20,diversity
+16,Kings,18,diversity
+17,Lake,40,diversity
+18,Lassen,26,diversity
+19,Los Angeles,9,diversity
+20,Madera,28,diversity
+21,Marin,37,diversity
+22,Mariposa,53,diversity
+23,Mendocino,34,diversity
+24,Merced,22,diversity
+25,Modoc,48,diversity
+26,Mono,44,diversity
+27,Monterey,24,diversity
+28,Napa,25,diversity
 29,Nevada,57,diversity
-30,Orange,9,diversity
-31,Placer,44,diversity
+30,Orange,13,diversity
+31,Placer,42,diversity
 32,Plumas,56,diversity
-33,Riverside,14,diversity
-34,Sacramento,5,diversity
-35,San Benito,31,diversity
-36,San Bernardino,15,diversity
-37,San Diego,11,diversity
-38,San Francisco,8,diversity
-39,San Joaquin,7,diversity
-40,San Luis Obispo,39,diversity
-41,San Mateo,4,diversity
-42,Santa Barbara,22,diversity
-43,Santa Clara,3,diversity
-44,Santa Cruz,29,diversity
+33,Riverside,16,diversity
+34,Sacramento,3,diversity
+35,San Benito,36,diversity
+36,San Bernardino,14,diversity
+37,San Diego,10,diversity
+38,San Francisco,6,diversity
+39,San Joaquin,4,diversity
+40,San Luis Obispo,38,diversity
+41,San Mateo,7,diversity
+42,Santa Barbara,27,diversity
+43,Santa Clara,8,diversity
+44,Santa Cruz,30,diversity
 45,Shasta,50,diversity
 46,Sierra,58,diversity
 47,Siskiyou,46,diversity
 48,Solano,2,diversity
-49,Sonoma,35,diversity
-50,Stanislaus,17,diversity
-51,Sutter,12,diversity
-52,Tehama,40,diversity
-53,Trinity,55,diversity
-54,Tulare,34,diversity
+49,Sonoma,32,diversity
+50,Stanislaus,21,diversity
+51,Sutter,11,diversity
+52,Tehama,45,diversity
+53,Trinity,54,diversity
+54,Tulare,33,diversity
 55,Tuolumne,51,diversity
-56,Ventura,18,diversity
-57,Yolo,13,diversity
-58,Yuba,21,diversity
+56,Ventura,23,diversity
+57,Yolo,12,diversity
+58,Yuba,17,diversity
 ,Alameda,5,recreation
 ,Alpine,51,recreation
 ,Amador,31,recreation
